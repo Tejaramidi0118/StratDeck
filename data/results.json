@@ -1,0 +1,162 @@
+{
+  "ppo_training_progression": [
+    {
+      "step": 50000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 49.2,
+      "avg_len_random": 17.09,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 51.0,
+      "avg_len_heuristic": 18.16
+    },
+    {
+      "step": 100000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 41.15,
+      "avg_len_random": 18.28,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 43.6,
+      "avg_len_heuristic": 18.44
+    },
+    {
+      "step": 150000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 44.4,
+      "avg_len_random": 19.12,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 43.0,
+      "avg_len_heuristic": 17.79
+    },
+    {
+      "step": 200000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 38.25,
+      "avg_len_random": 16.97,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 41.0,
+      "avg_len_heuristic": 18.03
+    },
+    {
+      "step": 250000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 32.45,
+      "avg_len_random": 17.16,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 43.25,
+      "avg_len_heuristic": 18.02
+    },
+    {
+      "step": 300000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 33.2,
+      "avg_len_random": 16.87,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 36.2,
+      "avg_len_heuristic": 17.29
+    },
+    {
+      "step": 350000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 40.3,
+      "avg_len_random": 16.88,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 31.2,
+      "avg_len_heuristic": 15.35
+    },
+    {
+      "step": 400000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 36.0,
+      "avg_len_random": 15.82,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 32.55,
+      "avg_len_heuristic": 15.95
+    },
+    {
+      "step": 450000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 27.1,
+      "avg_len_random": 15.12,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 25.7,
+      "avg_len_heuristic": 14.79
+    },
+    {
+      "step": 500000,
+      "win_rate_random": 0.0,
+      "avg_reward_random": 31.65,
+      "avg_len_random": 14.98,
+      "win_rate_heuristic": 0.0,
+      "avg_reward_heuristic": 29.45,
+      "avg_len_heuristic": 14.94
+    }
+  ],
+  "ppo_final_evaluation": {
+    "random": {
+      "games": 500,
+      "wins": 469,
+      "win_rate": 0.938,
+      "avg_reward": 26.54,
+      "avg_length": 15.044,
+      "illegal_attempts": 0
+    },
+    "heuristic": {
+      "games": 500,
+      "wins": 473,
+      "win_rate": 0.946,
+      "avg_reward": 26.16,
+      "avg_length": 15.132,
+      "illegal_attempts": 0
+    },
+    "checkpoint": {
+      "games": 500,
+      "wins": 412,
+      "win_rate": 0.824,
+      "avg_reward": 19.21,
+      "avg_length": 19.566,
+      "illegal_attempts": 0
+    }
+  },
+
+  "algorithm_comparison": {
+    "MaskablePPO": {
+      "model_path": "checkpoints/ppo/ppo_final.zip",
+      "training_timesteps": 500000,
+      "random_win_rate": 0.938,
+      "random_avg_reward": 26.54,
+      "random_avg_length": 15.044,
+      "heuristic_win_rate": 0.946,
+      "heuristic_avg_reward": 26.16,
+      "heuristic_avg_length": 15.132,
+      "checkpoint_win_rate": 0.824,
+      "checkpoint_avg_reward": 19.21,
+      "illegal_attempts": 0
+    },
+    "MaskedDQN": {
+      "model_path": "checkpoints/dqn/dqn_final.zip",
+      "training_timesteps": 500000,
+      "random_win_rate": 0.79,
+      "random_avg_reward": 40.26,
+      "random_avg_length": 20.68,
+      "heuristic_win_rate": 0.798,
+      "heuristic_avg_reward": 39.99,
+      "heuristic_avg_length": 19.368,
+      "checkpoint_win_rate": 0.848,
+      "checkpoint_avg_reward": 39.4,
+      "illegal_attempts": 0
+    },
+    "MaskedA2C": {
+      "model_path": "checkpoints/a2c/a2c_final.zip",
+      "training_timesteps": 500000,
+      "random_win_rate": 0.764,
+      "random_avg_reward": 34.04,
+      "random_avg_length": 19.998,
+      "heuristic_win_rate": 0.76,
+      "heuristic_avg_reward": 34.26,
+      "heuristic_avg_length": 19.83,
+      "checkpoint_win_rate": 0.764,
+      "checkpoint_avg_reward": 31.17,
+      "illegal_attempts": 0
+    }
+  }
+}

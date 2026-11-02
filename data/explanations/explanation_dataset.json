@@ -1,0 +1,5527 @@
+[
+  {
+    "record_id": 0,
+    "episode_id": 0,
+    "step_id": 0,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 0,
+        "alive_players_count": 2,
+        "deck_size": 22,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "SPY",
+          "ATTACK",
+          "REVERSE",
+          "ATTACK"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 1,
+          "SPY": 1,
+          "ATTACK": 2,
+          "REVERSE": 1
+        },
+        "public_discard_counts": {},
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "REVERSE",
+          "SPY",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999806880950928,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999806880950928
+          },
+          {
+            "action": "SPY",
+            "probability": 1.6963093003141694e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 1.1914447668459616e-06
+          },
+          {
+            "action": "ATTACK",
+            "probability": 7.465703788511746e-07
+          }
+        ],
+        "value_estimate_V_s": -3.18810772895813
+      },
+      "context": {
+        "profiler_cluster": null,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual provided policy probs/values, distinguish observable from preference, concise (2-4 sentences).\n    *   **Evidence Provided:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 5\n        *   Top Legal Actions: DRAW (100.0%), SPY (0.0%), REVERSE (0.0%), ATTACK (0.0%)\n        *   Value Estimate V(s): -3.19\n        *   Current Hand: SHIELD: 1, SPY: 1, ATTACK: 2, REVERSE: 1\n        *   Deck Size: 22\n        *   Pending Forced Draws: 1\n        *   Alive Players: 2\n        *",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999806880950928
+        },
+        {
+          "action": "SPY",
+          "probability": 1.6963093003141694e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 1.1914447668459616e-06
+        },
+        {
+          "action": "ATTACK",
+          "probability": 7.465703788511746e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 1,
+    "episode_id": 0,
+    "step_id": 1,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 2,
+        "alive_players_count": 2,
+        "deck_size": 22,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "ATTACK",
+          "REVERSE",
+          "ATTACK"
+        ],
+        "own_hand_counts": {
+          "SPY": 1,
+          "ATTACK": 2,
+          "REVERSE": 1
+        },
+        "public_discard_counts": {
+          "SHIELD": 2
+        },
+        "legal_actions": [
+          "ATTACK",
+          "REVERSE",
+          "SPY",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999792575836182,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999792575836182
+          },
+          {
+            "action": "SPY",
+            "probability": 1.861185228335671e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 1.3227056570030982e-06
+          },
+          {
+            "action": "ATTACK",
+            "probability": 7.722546229160798e-07
+          }
+        ],
+        "value_estimate_V_s": -0.12094593048095703
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info (opponent cards/deck order), no invented probabilities/Q-values, use actual policy probs/V(s) provided, distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 4\n        *   Top Legal Actions: DRAW (100.0%), SPY (0.0%), REVERSE (0.0%), ATTACK (0.0%)\n        *   Value Estimate V(s): -0.12\n        *   Current Hand: SPY: 1, ATTACK: 2, REVERSE: 1\n        *   Deck Size: 22\n        *   Pending Forced Draws: 1\n        *   Alive Players:",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999792575836182
+        },
+        {
+          "action": "SPY",
+          "probability": 1.861185228335671e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 1.3227056570030982e-06
+        },
+        {
+          "action": "ATTACK",
+          "probability": 7.722546229160798e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 2,
+    "episode_id": 0,
+    "step_id": 2,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 4,
+        "alive_players_count": 2,
+        "deck_size": 21,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "ATTACK",
+          "REVERSE",
+          "ATTACK",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "SPY": 1,
+          "ATTACK": 2,
+          "REVERSE": 2
+        },
+        "public_discard_counts": {
+          "SHIELD": 2,
+          "SKIP": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "REVERSE",
+          "SPY",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999760389328003,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999760389328003
+          },
+          {
+            "action": "SPY",
+            "probability": 2.1575444407062605e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 1.6052778164521442e-06
+          },
+          {
+            "action": "ATTACK",
+            "probability": 8.575601668781019e-07
+          }
+        ],
+        "value_estimate_V_s": 1.44203519821167
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (100%), Rank (1 of 4), Top Legal Actions (DRAW 100%, others 0%), V(s) (1.44), Hand (SPY:1, ATTACK:2, REVERSE:2), Deck Size (21), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *   Probability:",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999760389328003
+        },
+        {
+          "action": "SPY",
+          "probability": 2.1575444407062605e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 1.6052778164521442e-06
+        },
+        {
+          "action": "ATTACK",
+          "probability": 8.575601668781019e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 3,
+    "episode_id": 0,
+    "step_id": 3,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 8,
+        "alive_players_count": 2,
+        "deck_size": 20,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 1,
+          "ATTACK": 1,
+          "SKIP": 1
+        },
+        "public_discard_counts": {
+          "SHIELD": 2,
+          "SKIP": 1,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999649524688721,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999649524688721
+          },
+          {
+            "action": "SPY",
+            "probability": 3.0722418159712106e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 2.3147840693127364e-06
+          },
+          {
+            "action": "SKIP",
+            "probability": 1.094618141905812e-06
+          }
+        ],
+        "value_estimate_V_s": -12.460187911987305
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden opponent info/future deck order.\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 5\n        *   Top Legal Actions: DRAW (100.0%), SPY (0.0%), REVERSE (0.0%), SKIP (0.0%)\n        *   Value Estimate V(s): -12.46\n        *   Current Hand: SP",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999649524688721
+        },
+        {
+          "action": "SPY",
+          "probability": 3.0722418159712106e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 2.3147840693127364e-06
+        },
+        {
+          "action": "SKIP",
+          "probability": 1.094618141905812e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 4,
+    "episode_id": 0,
+    "step_id": 4,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 9,
+        "alive_players_count": 2,
+        "deck_size": 19,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 1,
+          "ATTACK": 1,
+          "SKIP": 1,
+          "TRAP": 1
+        },
+        "public_discard_counts": {
+          "SHIELD": 2,
+          "SKIP": 1,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999467134475708,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999467134475708
+          },
+          {
+            "action": "SPY",
+            "probability": 2.7294347091810778e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 2.2049969629733823e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 2.0326087906141765e-06
+          }
+        ],
+        "value_estimate_V_s": -11.45358657836914
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden opponent info/future deck order.\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 6\n        *   Top Legal Actions: DRAW (100.0%), SPY (0.0%), TRAP (0.0%), REVERSE (0.0%)\n        *   Value Estimate V(s): -11.45\n        *   Current Hand:",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999467134475708
+        },
+        {
+          "action": "SPY",
+          "probability": 2.7294347091810778e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 2.2049969629733823e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 2.0326087906141765e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 5,
+    "episode_id": 0,
+    "step_id": 5,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 11,
+        "alive_players_count": 2,
+        "deck_size": 18,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP",
+          "TRAP"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 1,
+          "ATTACK": 1,
+          "SKIP": 1,
+          "TRAP": 2
+        },
+        "public_discard_counts": {
+          "SHIELD": 2,
+          "SKIP": 1,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999501705169678,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999501705169678
+          },
+          {
+            "action": "SPY",
+            "probability": 2.5733183065312915e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 2.0304720237618312e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 1.9165606772730825e-06
+          }
+        ],
+        "value_estimate_V_s": -5.382178783416748
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   No new actions/recommendations.\n        *   No invented facts (hidden cards, future deck order).\n        *   No invented probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 6\n        *   Top Legal Actions: DRAW (100.0%), SPY (0.0%), TRAP (0.0%), REVERSE (0.0%)\n        *   Value Estimate V(s): -5.38\n        *   Current Hand: SPY: 2, REVERSE: 1",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999501705169678
+        },
+        {
+          "action": "SPY",
+          "probability": 2.5733183065312915e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 2.0304720237618312e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 1.9165606772730825e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 6,
+    "episode_id": 0,
+    "step_id": 6,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 13,
+        "alive_players_count": 2,
+        "deck_size": 16,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP",
+          "TRAP",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 2,
+          "ATTACK": 1,
+          "SKIP": 1,
+          "TRAP": 2
+        },
+        "public_discard_counts": {
+          "SHIELD": 2,
+          "SKIP": 1,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999359846115112,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999359846115112
+          },
+          {
+            "action": "SPY",
+            "probability": 3.1218627555062994e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 2.8181470042909496e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 2.384045728831552e-06
+          }
+        ],
+        "value_estimate_V_s": -2.3933682441711426
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 6\n        *   Top Legal Actions: DRAW (100.0%), SPY (0.0%), TRAP (0.0%), REVERSE (0.0%)\n        *   Value Estimate V(s): -2.39\n        *   Current Hand: SPY: 2, REVERSE: 2, ATTACK: 1, SKIP: 1, TRAP: 2\n        *   Deck Size: 16\n        *   Pending Forced Draws: 1\n        *   Alive Players",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999359846115112
+        },
+        {
+          "action": "SPY",
+          "probability": 3.1218627555062994e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 2.8181470042909496e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 2.384045728831552e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 7,
+    "episode_id": 0,
+    "step_id": 7,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 15,
+        "alive_players_count": 2,
+        "deck_size": 15,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP",
+          "TRAP",
+          "REVERSE",
+          "ATTACK"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 2,
+          "ATTACK": 2,
+          "SKIP": 1,
+          "TRAP": 2
+        },
+        "public_discard_counts": {
+          "SHIELD": 3,
+          "SKIP": 1,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9999048709869385,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9999048709869385
+          },
+          {
+            "action": "TRAP",
+            "probability": 4.6928904339438304e-05
+          },
+          {
+            "action": "SPY",
+            "probability": 4.229020487400703e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 3.231245955248596e-06
+          }
+        ],
+        "value_estimate_V_s": 3.3931498527526855
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info (opponent cards/deck order), no invented probabilities/Q-values (use provided ones), distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Evidence Provided:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 6\n        *   Top Legal Actions: DRAW (100.0%), TRAP (0.0%), SPY (0.0%), REVERSE (0.0%)\n        *   Value Estimate V(s): 3.39\n        *   Current Hand: SPY: 2, REVERSE: 2, ATTACK: 2, SKIP: 1, TRAP: 2\n        *   Deck Size: 15\n        *   Pending Forced Draws: 1",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9999048709869385
+        },
+        {
+          "action": "TRAP",
+          "probability": 4.6928904339438304e-05
+        },
+        {
+          "action": "SPY",
+          "probability": 4.229020487400703e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 3.231245955248596e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 8,
+    "episode_id": 0,
+    "step_id": 8,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 17,
+        "alive_players_count": 2,
+        "deck_size": 13,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP",
+          "TRAP",
+          "REVERSE",
+          "ATTACK",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 2,
+          "ATTACK": 2,
+          "SKIP": 1,
+          "TRAP": 2,
+          "SHIELD": 1
+        },
+        "public_discard_counts": {
+          "SHIELD": 3,
+          "SKIP": 1,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9998834133148193,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9998834133148193
+          },
+          {
+            "action": "TRAP",
+            "probability": 5.9916808822890744e-05
+          },
+          {
+            "action": "SPY",
+            "probability": 4.903137596556917e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 3.7192814943409758e-06
+          }
+        ],
+        "value_estimate_V_s": 3.726254940032959
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values (use provided ones), distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (100%), Rank (1 of 7), Top Legal Actions (DRAW 100%, others 0%), V(s) (3.73), Hand composition, Deck Size (13), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys.\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW.\n    *   Probability: 100% (Policy certainty).\n    *   Value Estimate: 3.73 (Positive value, likely good state).\n    *   Hand: Strong hand? SPY",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9998834133148193
+        },
+        {
+          "action": "TRAP",
+          "probability": 5.9916808822890744e-05
+        },
+        {
+          "action": "SPY",
+          "probability": 4.903137596556917e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 3.7192814943409758e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 9,
+    "episode_id": 0,
+    "step_id": 9,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 19,
+        "alive_players_count": 2,
+        "deck_size": 12,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP",
+          "TRAP",
+          "REVERSE",
+          "ATTACK",
+          "SHIELD",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 3,
+          "ATTACK": 2,
+          "SKIP": 1,
+          "TRAP": 2,
+          "SHIELD": 1
+        },
+        "public_discard_counts": {
+          "SHIELD": 3,
+          "SKIP": 2,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9998041987419128,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9998041987419128
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.00011077043745899573
+          },
+          {
+            "action": "SPY",
+            "probability": 7.315406401176006e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 6.04932847636519e-06
+          }
+        ],
+        "value_estimate_V_s": 3.0272421836853027
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values (use provided ones), distinguish observable from preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Probability (100%), Rank (1 of 7), Top Legal Actions (DRAW 100%, others 0%), Value Estimate V(s) (3.03), Current Hand, Deck Size (12), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *   Probability: 100.0% (Policy certainty).\n    *",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9998041987419128
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.00011077043745899573
+        },
+        {
+          "action": "SPY",
+          "probability": 7.315406401176006e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 6.04932847636519e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 10,
+    "episode_id": 0,
+    "step_id": 10,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 21,
+        "alive_players_count": 2,
+        "deck_size": 10,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP",
+          "TRAP",
+          "REVERSE",
+          "ATTACK",
+          "SHIELD",
+          "REVERSE",
+          "SKIP"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 3,
+          "ATTACK": 2,
+          "SKIP": 2,
+          "TRAP": 2,
+          "SHIELD": 1
+        },
+        "public_discard_counts": {
+          "SHIELD": 3,
+          "SKIP": 2,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.999640941619873,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.999640941619873
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.0002249852695968002
+          },
+          {
+            "action": "SPY",
+            "probability": 0.00011511414777487516
+          },
+          {
+            "action": "REVERSE",
+            "probability": 9.908475476549938e-06
+          }
+        ],
+        "value_estimate_V_s": 3.3501973152160645
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden opponent info/future deck order.\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities pi(a|s) and value estimate V(s) provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (100.0%), TRAP (0.0%), SPY (0.0%), REVERSE (0.0%)\n        *   Value Estimate V(s): 3.35",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.999640941619873
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.0002249852695968002
+        },
+        {
+          "action": "SPY",
+          "probability": 0.00011511414777487516
+        },
+        {
+          "action": "REVERSE",
+          "probability": 9.908475476549938e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 11,
+    "episode_id": 0,
+    "step_id": 11,
+    "seed": 42,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 23,
+        "alive_players_count": 2,
+        "deck_size": 9,
+        "pending_draw_count": 2,
+        "own_hand_cards": [
+          "SPY",
+          "REVERSE",
+          "ATTACK",
+          "SKIP",
+          "SPY",
+          "TRAP",
+          "TRAP",
+          "REVERSE",
+          "ATTACK",
+          "SHIELD",
+          "REVERSE",
+          "SKIP",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "SPY": 2,
+          "REVERSE": 3,
+          "ATTACK": 2,
+          "SKIP": 2,
+          "TRAP": 2,
+          "SHIELD": 2
+        },
+        "public_discard_counts": {
+          "SHIELD": 3,
+          "SKIP": 2,
+          "SWAP": 1,
+          "STEAL": 1,
+          "ATTACK": 1,
+          "REVERSE": 1,
+          "TRAP": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9996676445007324,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9996676445007324
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.00020754820434376597
+          },
+          {
+            "action": "SPY",
+            "probability": 0.00010747351188911125
+          },
+          {
+            "action": "REVERSE",
+            "probability": 9.058409887074959e-06
+          }
+        ],
+        "value_estimate_V_s": 6.861377239227295
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info (opponent cards/deck), no invented probabilities/Q-values (use provided ones), distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action: DRAW (Index 9), Prob: 100.0%, Rank: 1 of 7, Top Legal Actions: DRAW (100%), TRAP (0%), SPY (0%), REVERSE (0%), V(s): 6.86, Hand: [SPY:2, REVERSE:3, ATTACK:2, SKIP:2, TRAP:2, SHIELD:2], Deck Size: 9, Pending Forced Draws: 2, Alive Players: 2, DDA Tier Context: 2, Behavioral Profile Context: Cluster 0.\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9996676445007324
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.00020754820434376597
+        },
+        {
+          "action": "SPY",
+          "probability": 0.00010747351188911125
+        },
+        {
+          "action": "REVERSE",
+          "probability": 9.058409887074959e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 12,
+    "episode_id": 1,
+    "step_id": 0,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 0,
+        "alive_players_count": 2,
+        "deck_size": 22,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "STEAL",
+          "STEAL",
+          "SPY",
+          "SWAP"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 1,
+          "STEAL": 2,
+          "SPY": 1,
+          "SWAP": 1
+        },
+        "public_discard_counts": {},
+        "legal_actions": [
+          "STEAL",
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          false,
+          true,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 8,
+        "chosen_action_name": "STEAL",
+        "chosen_action_probability": 0.9566383957862854,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "STEAL",
+            "probability": 0.9566383957862854
+          },
+          {
+            "action": "DRAW",
+            "probability": 0.04333783686161041
+          },
+          {
+            "action": "SWAP",
+            "probability": 2.299117659276817e-05
+          },
+          {
+            "action": "SPY",
+            "probability": 7.741951435491501e-07
+          }
+        ],
+        "value_estimate_V_s": 37.019989013671875
+      },
+      "context": {
+        "profiler_cluster": null,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "STEAL",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use provided pi(a|s) and V(s), distinguish observable from preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (STEAL), Prob (95.7%), Rank (1/5), Top Legal Actions (STEAL 95.7%, DRAW 4.3%, others 0%), V(s) (37.02), Hand (SHIELD:1, STEAL:2, SPY:1, SWAP:1), Deck Size (22), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster None).\n    *   **Output Format:** JSON with specific keys.\n\n2.  **Evaluate Evidence & Constraints:**\n    *   Selected Action: STEAL.\n    *   Probability: 95.7%",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "STEAL",
+          "probability": 0.9566383957862854
+        },
+        {
+          "action": "DRAW",
+          "probability": 0.04333783686161041
+        },
+        {
+          "action": "SWAP",
+          "probability": 2.299117659276817e-05
+        },
+        {
+          "action": "SPY",
+          "probability": 7.741951435491501e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 13,
+    "episode_id": 1,
+    "step_id": 1,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 1,
+        "alive_players_count": 2,
+        "deck_size": 22,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "STEAL",
+          "SPY",
+          "SWAP",
+          "TRAP"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 1,
+          "STEAL": 1,
+          "SPY": 1,
+          "SWAP": 1,
+          "TRAP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "STEAL",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 8,
+        "chosen_action_name": "STEAL",
+        "chosen_action_probability": 0.9518827795982361,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "STEAL",
+            "probability": 0.9518827795982361
+          },
+          {
+            "action": "DRAW",
+            "probability": 0.04809361696243286
+          },
+          {
+            "action": "SWAP",
+            "probability": 2.237901571788825e-05
+          },
+          {
+            "action": "SPY",
+            "probability": 7.855597345951537e-07
+          }
+        ],
+        "value_estimate_V_s": 6.316556453704834
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "STEAL",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use provided pi(a|s) and V(s), distinguish observable vs policy preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (STEAL), Prob (95.2%), Rank (1/6), Top Legal Actions (STEAL 95.2%, DRAW 4.8%, others 0%), V(s) 6.32, Hand composition, Deck Size, Pending Draws, Alive Players, DDA Tier, Behavioral Profile.\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: STEAL (Index 8).\n    *   Probability: 95.2% (Dominant choice).\n    *   Value",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "STEAL",
+          "probability": 0.9518827795982361
+        },
+        {
+          "action": "DRAW",
+          "probability": 0.04809361696243286
+        },
+        {
+          "action": "SWAP",
+          "probability": 2.237901571788825e-05
+        },
+        {
+          "action": "SPY",
+          "probability": 7.855597345951537e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 14,
+    "episode_id": 1,
+    "step_id": 2,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 2,
+        "alive_players_count": 2,
+        "deck_size": 22,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 2,
+          "SPY": 1,
+          "SWAP": 1,
+          "TRAP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9995797276496887,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9995797276496887
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0003977818414568901
+          },
+          {
+            "action": "SPY",
+            "probability": 1.5016353245300706e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 7.189865300460951e-06
+          }
+        ],
+        "value_estimate_V_s": -2.298403739929199
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 5\n        *   Top Legal Actions: DRAW (100.0%), SWAP (0.0%), SPY (0.0%), TRAP (0.0%)\n        *   Value Estimate V(s): -2.30\n        *   Current Hand: SHIELD: 2, SPY: 1, SWAP: 1, TRAP: 1\n        *   Deck Size: 22\n        *   Pending Forced Draws: 1\n        *   Alive Players: 2",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9995797276496887
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0003977818414568901
+        },
+        {
+          "action": "SPY",
+          "probability": 1.5016353245300706e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 7.189865300460951e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 15,
+    "episode_id": 1,
+    "step_id": 3,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 4,
+        "alive_players_count": 2,
+        "deck_size": 20,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 2,
+          "SPY": 1,
+          "SWAP": 1,
+          "TRAP": 1,
+          "SKIP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.999570906162262,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.999570906162262
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0004052503209095448
+          },
+          {
+            "action": "SPY",
+            "probability": 1.5597759556840174e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 7.3344126576557755e-06
+          }
+        ],
+        "value_estimate_V_s": -4.534958839416504
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs and V(s), distinguish observable from preference, concise (2-4 sentences).\n    *   **Evidence Provided:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 6\n        *   Top Legal Actions: DRAW (100.0%), SWAP (0.0%), SPY (0.0%), TRAP (0.0%)\n        *   Value Estimate V(s): -4.53\n        *   Current Hand: SHIELD: 2, SPY: 1, SWAP: 1, TRAP: 1, SKIP: 1\n        *   Deck Size: 20\n        *   Pending Forced Draws: 1\n        *",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.999570906162262
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0004052503209095448
+        },
+        {
+          "action": "SPY",
+          "probability": 1.5597759556840174e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 7.3344126576557755e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 16,
+    "episode_id": 1,
+    "step_id": 4,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 6,
+        "alive_players_count": 2,
+        "deck_size": 19,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 3,
+          "SPY": 1,
+          "SWAP": 1,
+          "TRAP": 1,
+          "SKIP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "ATTACK": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.999570906162262,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.999570906162262
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.00040511394036002457
+          },
+          {
+            "action": "SPY",
+            "probability": 1.576859358465299e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 7.263482075359207e-06
+          }
+        ],
+        "value_estimate_V_s": -4.528627395629883
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use provided pi(a|s) and V(s), distinguish observable from preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action: DRAW (Index 9), Prob: 100.0%, Rank: 1 of 6, Top Legal Actions: DRAW (100%), SWAP/SPY/TRAP (0%), V(s): -4.53, Hand: SHIELD:3, SPY:1, SWAP:1, TRAP:1, SKIP:1, Deck:19, Pending Forced Draws:1, Alive Players:2, DDA Tier Context:2, Behavioral Profile Context:Cluster 0.\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.999570906162262
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.00040511394036002457
+        },
+        {
+          "action": "SPY",
+          "probability": 1.576859358465299e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 7.263482075359207e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 17,
+    "episode_id": 1,
+    "step_id": 5,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 7,
+        "alive_players_count": 2,
+        "deck_size": 18,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 3,
+          "SPY": 1,
+          "SWAP": 1,
+          "TRAP": 1,
+          "SKIP": 1,
+          "REVERSE": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "ATTACK": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9995191097259521,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9995191097259521
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0004537370696198195
+          },
+          {
+            "action": "SPY",
+            "probability": 1.663305920374114e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 8.326254828716628e-06
+          }
+        ],
+        "value_estimate_V_s": -0.5002613067626953
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info (opponent cards, future deck), no invented probabilities/Q-values, use provided policy probs and V(s), distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (100%), Rank (1 of 7), Top Legal Actions (DRAW 100%, others 0%), V(s) (-0.50), Hand composition, Deck Size (18), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *   Probability: 100%",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9995191097259521
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0004537370696198195
+        },
+        {
+          "action": "SPY",
+          "probability": 1.663305920374114e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 8.326254828716628e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 18,
+    "episode_id": 1,
+    "step_id": 6,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 11,
+        "alive_players_count": 2,
+        "deck_size": 16,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 3,
+          "SWAP": 1,
+          "TRAP": 2,
+          "SKIP": 1,
+          "REVERSE": 1,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9992412328720093,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9992412328720093
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0007402562187053263
+          },
+          {
+            "action": "TRAP",
+            "probability": 1.4640114386565983e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 1.603463488208945e-06
+          }
+        ],
+        "value_estimate_V_s": 2.2883214950561523
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (99.9%), Rank (1 of 7), Top Legal Actions (DRAW 99.9%, SWAP 0.1%, etc.), V(s) (2.29), Hand composition, Deck Size (16), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *   Probability: 99.9% (Very",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9992412328720093
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0007402562187053263
+        },
+        {
+          "action": "TRAP",
+          "probability": 1.4640114386565983e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 1.603463488208945e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 19,
+    "episode_id": 1,
+    "step_id": 7,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 14,
+        "alive_players_count": 2,
+        "deck_size": 15,
+        "pending_draw_count": 2,
+        "own_hand_cards": [
+          "SHIELD",
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 3,
+          "SWAP": 1,
+          "TRAP": 2,
+          "SKIP": 2,
+          "REVERSE": 1,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 2,
+          "TRAP": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9989308714866638,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9989308714866638
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0010429269168525934
+          },
+          {
+            "action": "TRAP",
+            "probability": 2.159640825993847e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 2.0272157144063385e-06
+          }
+        ],
+        "value_estimate_V_s": 10.075111389160156
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden info (opponent cards, future deck).\n        *   Never invent probabilities/Q-values for PPO.\n        *   Use actual policy probabilities ($\\pi(a|s)$) and value estimate $V(s)$ provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 99.9%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (99.9%), SWAP (0.1%), TRAP (0.0%), REVERSE (0.0%)\n        *   Value Estimate V(s): 10.0",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9989308714866638
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0010429269168525934
+        },
+        {
+          "action": "TRAP",
+          "probability": 2.159640825993847e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 2.0272157144063385e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 20,
+    "episode_id": 1,
+    "step_id": 8,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 16,
+        "alive_players_count": 2,
+        "deck_size": 13,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP",
+          "SWAP"
+        ],
+        "own_hand_counts": {
+          "SWAP": 2,
+          "TRAP": 2,
+          "SHIELD": 2,
+          "SKIP": 2,
+          "REVERSE": 1,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 2,
+          "TRAP": 1,
+          "SHIELD": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9975271821022034,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9975271821022034
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.002405473729595542
+          },
+          {
+            "action": "TRAP",
+            "probability": 5.94859266129788e-05
+          },
+          {
+            "action": "REVERSE",
+            "probability": 3.782718977163313e-06
+          }
+        ],
+        "value_estimate_V_s": 5.078650951385498
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (99.8%), Rank (1 of 7), Top Legal Actions (DRAW 99.8%, SWAP 0.2%, others 0.0%), V(s) (5.08), Hand composition, Deck Size (13), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *   Probability: 99.",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9975271821022034
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.002405473729595542
+        },
+        {
+          "action": "TRAP",
+          "probability": 5.94859266129788e-05
+        },
+        {
+          "action": "REVERSE",
+          "probability": 3.782718977163313e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 21,
+    "episode_id": 1,
+    "step_id": 9,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 18,
+        "alive_players_count": 2,
+        "deck_size": 11,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP",
+          "SWAP",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "SWAP": 2,
+          "TRAP": 2,
+          "SHIELD": 2,
+          "SKIP": 2,
+          "REVERSE": 2,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 2,
+          "TRAP": 1,
+          "SHIELD": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9954851865768433,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9954851865768433
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.004380239173769951
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.00012281292583793402
+          },
+          {
+            "action": "REVERSE",
+            "probability": 5.9232193052594084e-06
+          }
+        ],
+        "value_estimate_V_s": 9.730953216552734
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   No new actions/recommendations.\n        *   No invented facts (hidden cards, future deck, etc.).\n        *   No invented probabilities/Q-values for PPO.\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Probability: 99.5%\n        *   Rank: 1 of 7\n        *   Top Legal Actions: DRAW (99.5%), SWAP (0.4%), TRAP (0.0%), REVERSE (0.0%)\n        *   Value Estimate V(s): 9.73\n        *   Current Hand: SWAP: 2, TRAP: 2, SHIELD: 2, SKIP:",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9954851865768433
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.004380239173769951
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.00012281292583793402
+        },
+        {
+          "action": "REVERSE",
+          "probability": 5.9232193052594084e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 22,
+    "episode_id": 1,
+    "step_id": 10,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 21,
+        "alive_players_count": 2,
+        "deck_size": 10,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP",
+          "SWAP",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "SWAP": 2,
+          "TRAP": 2,
+          "SHIELD": 2,
+          "SKIP": 2,
+          "REVERSE": 2,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 2,
+          "TRAP": 1,
+          "SHIELD": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9918140172958374,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9918140172958374
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.007905643433332443
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.0002619254228193313
+          },
+          {
+            "action": "REVERSE",
+            "probability": 9.769378266355488e-06
+          }
+        ],
+        "value_estimate_V_s": 12.965141296386719
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use provided pi(a|s) and V(s), distinguish observable from policy preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (99.2%), Rank (1 of 7), Top Legal Actions (DRAW 99.2%, SWAP 0.8%, others 0.0%), V(s) (12.97), Hand details, Deck Size (10), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9918140172958374
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.007905643433332443
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.0002619254228193313
+        },
+        {
+          "action": "REVERSE",
+          "probability": 9.769378266355488e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 23,
+    "episode_id": 1,
+    "step_id": 11,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 23,
+        "alive_players_count": 2,
+        "deck_size": 8,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP",
+          "SWAP",
+          "REVERSE",
+          "ATTACK"
+        ],
+        "own_hand_counts": {
+          "SWAP": 2,
+          "TRAP": 2,
+          "SHIELD": 2,
+          "SKIP": 2,
+          "REVERSE": 2,
+          "ATTACK": 2
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 2,
+          "TRAP": 1,
+          "SHIELD": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9842219352722168,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9842219352722168
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.015139851719141006
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.0006050606025382876
+          },
+          {
+            "action": "REVERSE",
+            "probability": 1.827261621656362e-05
+          }
+        ],
+        "value_estimate_V_s": 9.508386611938477
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden opponent info/future deck order.\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities pi(a|s) and value estimate V(s) provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2 to 4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 98.4%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (98.4%), SWAP (1.5%), TRAP (0.1%), REVERSE (0.0%)\n        *   Value Estimate V(s): 9.51",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9842219352722168
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.015139851719141006
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.0006050606025382876
+        },
+        {
+          "action": "REVERSE",
+          "probability": 1.827261621656362e-05
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 24,
+    "episode_id": 1,
+    "step_id": 12,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 26,
+        "alive_players_count": 2,
+        "deck_size": 6,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP",
+          "SWAP",
+          "REVERSE",
+          "ATTACK",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "SWAP": 2,
+          "TRAP": 2,
+          "SHIELD": 3,
+          "SKIP": 2,
+          "REVERSE": 2,
+          "ATTACK": 2
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 3,
+          "TRAP": 1,
+          "SHIELD": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9751371145248413,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9751371145248413
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.023568855598568916
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.0012312623439356685
+          },
+          {
+            "action": "REVERSE",
+            "probability": 3.5476656194077805e-05
+          }
+        ],
+        "value_estimate_V_s": 12.917825698852539
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden info (opponent cards, future deck).\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 97.5%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (97.5%), SWAP (2.4%), TRAP (0.1%), REVERSE (0.0%)\n        *   Value Estimate V(s): 12.92\n        *   Current Hand:",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9751371145248413
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.023568855598568916
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.0012312623439356685
+        },
+        {
+          "action": "REVERSE",
+          "probability": 3.5476656194077805e-05
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 25,
+    "episode_id": 1,
+    "step_id": 13,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 28,
+        "alive_players_count": 2,
+        "deck_size": 5,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP",
+          "SWAP",
+          "REVERSE",
+          "ATTACK",
+          "SHIELD",
+          "SKIP"
+        ],
+        "own_hand_counts": {
+          "SWAP": 2,
+          "TRAP": 2,
+          "SHIELD": 3,
+          "SKIP": 3,
+          "REVERSE": 2,
+          "ATTACK": 2
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 3,
+          "TRAP": 1,
+          "SHIELD": 1,
+          "REVERSE": 2
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.8808374404907227,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.8808374404907227
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.10262855142354965
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.015877142548561096
+          },
+          {
+            "action": "REVERSE",
+            "probability": 0.00038835930172353983
+          }
+        ],
+        "value_estimate_V_s": 12.841556549072266
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden opponent info/future deck order.\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities $p_i(a|s)$ and value estimate $V(s)$ provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2 to 4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 88.1%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (88.1%), SWAP (10.3%), TRAP (1.6%), REVERSE (0.0%)\n        *   Value Estimate V(s): 1",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.8808374404907227
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.10262855142354965
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.015877142548561096
+        },
+        {
+          "action": "REVERSE",
+          "probability": 0.00038835930172353983
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 26,
+    "episode_id": 1,
+    "step_id": 14,
+    "seed": 43,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 30,
+        "alive_players_count": 2,
+        "deck_size": 4,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "TRAP",
+          "SHIELD",
+          "SKIP",
+          "SHIELD",
+          "REVERSE",
+          "TRAP",
+          "ATTACK",
+          "SKIP",
+          "SWAP",
+          "REVERSE",
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "SPY"
+        ],
+        "own_hand_counts": {
+          "SWAP": 2,
+          "TRAP": 2,
+          "SHIELD": 3,
+          "SKIP": 3,
+          "REVERSE": 2,
+          "ATTACK": 2,
+          "SPY": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 3,
+          "TRAP": 1,
+          "SHIELD": 1,
+          "REVERSE": 2,
+          "SKIP": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 7,
+        "chosen_action_name": "TRAP",
+        "chosen_action_probability": 0.5580234527587891,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "TRAP",
+            "probability": 0.5580234527587891
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.3049922585487366
+          },
+          {
+            "action": "DRAW",
+            "probability": 0.11888990551233292
+          },
+          {
+            "action": "REVERSE",
+            "probability": 0.007816928438842297
+          }
+        ],
+        "value_estimate_V_s": 14.855310440063477
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "TRAP",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden opponent info/future deck order.\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities pi(a|s) and value estimate V(s) provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2 to 4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: TRAP (Index 7)\n        *   Selected Action Probability: 55.8%\n        *   Selected Action Rank: 1 of 8\n        *   Top Legal Actions: TRAP (55.8%), SWAP (30.5%), DRAW (11.9%), REVERSE (0.8%)\n        *   Value Estimate V(s): 14",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "TRAP",
+          "probability": 0.5580234527587891
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.3049922585487366
+        },
+        {
+          "action": "DRAW",
+          "probability": 0.11888990551233292
+        },
+        {
+          "action": "REVERSE",
+          "probability": 0.007816928438842297
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 27,
+    "episode_id": 2,
+    "step_id": 0,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 0,
+        "alive_players_count": 2,
+        "deck_size": 22,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "TRAP",
+          "ATTACK",
+          "STEAL",
+          "SWAP"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 1,
+          "TRAP": 1,
+          "ATTACK": 1,
+          "STEAL": 1,
+          "SWAP": 1
+        },
+        "public_discard_counts": {},
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SWAP",
+          "TRAP",
+          "STEAL",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 8,
+        "chosen_action_name": "STEAL",
+        "chosen_action_probability": 0.9537851214408875,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "STEAL",
+            "probability": 0.9537851214408875
+          },
+          {
+            "action": "DRAW",
+            "probability": 0.0461917370557785
+          },
+          {
+            "action": "SWAP",
+            "probability": 2.261582631035708e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 4.1437462527937896e-07
+          }
+        ],
+        "value_estimate_V_s": 14.449514389038086
+      },
+      "context": {
+        "profiler_cluster": null,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "STEAL",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Do not select/recommend different actions.\n        *   Do not invent game-state facts.\n        *   Do not claim hidden opponent info/future deck order.\n        *   Do not invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: STEAL (Index 8)\n        *   Probability: 95.4%\n        *   Rank: 1 of 6\n        *   Top Legal Actions: STEAL (95.4%), DRAW (4.6%), SWAP (0.0%), TRAP (0.0%)\n        *   Value Estimate V(s): 14.45\n        *   Current Hand: SH",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "STEAL",
+          "probability": 0.9537851214408875
+        },
+        {
+          "action": "DRAW",
+          "probability": 0.0461917370557785
+        },
+        {
+          "action": "SWAP",
+          "probability": 2.261582631035708e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 4.1437462527937896e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 28,
+    "episode_id": 2,
+    "step_id": 1,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 1,
+        "alive_players_count": 2,
+        "deck_size": 22,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "TRAP",
+          "ATTACK",
+          "SWAP",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 2,
+          "TRAP": 1,
+          "ATTACK": 1,
+          "SWAP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          false,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9995625615119934,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9995625615119934
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0004285717732273042
+          },
+          {
+            "action": "TRAP",
+            "probability": 7.718920642219018e-06
+          },
+          {
+            "action": "ATTACK",
+            "probability": 7.409325917251408e-07
+          }
+        ],
+        "value_estimate_V_s": -1.0271254777908325
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info (opponent cards, future deck), no invented probabilities/Q-values, use actual policy probs/V(s) provided, distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Evidence Provided:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 100.0%\n        *   Selected Action Rank: 1 of 5\n        *   Top Legal Actions: DRAW (100.0%), SWAP (0.0%), TRAP (0.0%), ATTACK (0.0%)\n        *   Value Estimate V(s): -1.03\n        *   Current Hand: SHIELD: 2, TRAP: 1, ATTACK: 1, SWAP: 1\n        *   Deck Size: 22\n        *   Pending Forced Draws: 1",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9995625615119934
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0004285717732273042
+        },
+        {
+          "action": "TRAP",
+          "probability": 7.718920642219018e-06
+        },
+        {
+          "action": "ATTACK",
+          "probability": 7.409325917251408e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 29,
+    "episode_id": 2,
+    "step_id": 2,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 3,
+        "alive_players_count": 2,
+        "deck_size": 21,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "TRAP",
+          "ATTACK",
+          "SWAP",
+          "SHIELD",
+          "SPY"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 2,
+          "TRAP": 1,
+          "ATTACK": 1,
+          "SWAP": 1,
+          "SPY": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 1,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          false,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9995526671409607,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9995526671409607
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.00042323011439293623
+          },
+          {
+            "action": "SPY",
+            "probability": 1.5339997844421305e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 7.673118489037734e-06
+          }
+        ],
+        "value_estimate_V_s": 6.9905104637146
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (100%), Rank (1 of 6), Top Legal Actions (DRAW 100%, others 0%), V(s) (6.99), Hand composition, Deck Size (21), Pending Draws (1), Alive Players (2), DDA Tier (2), Cluster (0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW.\n    *   Probability: 100% (Policy certainty).\n    *   Value Estimate: 6.99 (Positive value",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9995526671409607
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.00042323011439293623
+        },
+        {
+          "action": "SPY",
+          "probability": 1.5339997844421305e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 7.673118489037734e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 30,
+    "episode_id": 2,
+    "step_id": 3,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 6,
+        "alive_players_count": 2,
+        "deck_size": 19,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "TRAP",
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 2,
+          "TRAP": 1,
+          "SWAP": 1,
+          "SPY": 1,
+          "SKIP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9995570778846741,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9995570778846741
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0004184683784842491
+          },
+          {
+            "action": "SPY",
+            "probability": 1.5878580597927794e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 7.649115104868542e-06
+          }
+        ],
+        "value_estimate_V_s": -8.08796501159668
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use provided pi(a|s) and V(s), distinguish observable from preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action: DRAW, Prob: 100%, Rank: 1 of 6, Top Legal Actions: DRAW (100%), SWAP (0%), SPY (0%), TRAP (0%), V(s): -8.09, Hand: SHIELD:2, TRAP:1, SWAP:1, SPY:1, SKIP:1, Deck:19, Pending Forced Draws:1, Alive Players:2, DDA Tier Context:2, Behavioral Profile Context:Cluster 0.\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9995570778846741
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0004184683784842491
+        },
+        {
+          "action": "SPY",
+          "probability": 1.5878580597927794e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 7.649115104868542e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 31,
+    "episode_id": 2,
+    "step_id": 4,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 8,
+        "alive_players_count": 2,
+        "deck_size": 17,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SHIELD",
+          "TRAP",
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP"
+        ],
+        "own_hand_counts": {
+          "SHIELD": 2,
+          "TRAP": 2,
+          "SWAP": 1,
+          "SPY": 1,
+          "SKIP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "REVERSE": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9995790123939514,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9995790123939514
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.00039748047129251063
+          },
+          {
+            "action": "SPY",
+            "probability": 1.549335320305545e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 7.256935987243196e-06
+          }
+        ],
+        "value_estimate_V_s": -2.382721424102783
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action: DRAW, Prob: 100%, Rank: 1 of 6, Top Legal Actions: DRAW (100%), SWAP (0%), SPY (0%), TRAP (0%), V(s): -2.38, Hand: SHIELD: 2, TRAP: 2, SWAP: 1, SPY: 1, SKIP: 1, Deck Size: 17, Pending Forced Draws: 1, Alive Players: 2, DDA Tier Context: 2, Behavioral Profile Context: Cluster 0.\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9995790123939514
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.00039748047129251063
+        },
+        {
+          "action": "SPY",
+          "probability": 1.549335320305545e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 7.256935987243196e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 32,
+    "episode_id": 2,
+    "step_id": 5,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 10,
+        "alive_players_count": 2,
+        "deck_size": 17,
+        "pending_draw_count": 2,
+        "own_hand_cards": [
+          "TRAP",
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP"
+        ],
+        "own_hand_counts": {
+          "TRAP": 2,
+          "SWAP": 1,
+          "SHIELD": 1,
+          "SPY": 1,
+          "SKIP": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "REVERSE": 1,
+          "SHIELD": 1,
+          "TRAP": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          false,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9994739890098572,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9994739890098572
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0004985255072824657
+          },
+          {
+            "action": "SPY",
+            "probability": 1.695386708888691e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 9.626133760320954e-06
+          }
+        ],
+        "value_estimate_V_s": -8.618438720703125
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   No new actions/recommendations.\n        *   No invented facts (game state, hidden cards, future deck).\n        *   No hidden knowledge (opponent cards, future deck order).\n        *   No invented probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 99.9%\n        *   Selected Action Rank: 1 of 6\n        *   Top Legal Actions: DRAW (99.9%), SWAP (0.0%), SPY (0.0%), TRAP (0.0%)\n        *   Value Estimate V(s): -8.62",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9994739890098572
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0004985255072824657
+        },
+        {
+          "action": "SPY",
+          "probability": 1.695386708888691e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 9.626133760320954e-06
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 33,
+    "episode_id": 2,
+    "step_id": 6,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 12,
+        "alive_players_count": 2,
+        "deck_size": 15,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "TRAP",
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "TRAP": 2,
+          "SWAP": 1,
+          "SHIELD": 1,
+          "SPY": 2,
+          "SKIP": 1,
+          "REVERSE": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "REVERSE": 1,
+          "SHIELD": 1,
+          "TRAP": 1,
+          "SKIP": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9993222951889038,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9993222951889038
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0006415708339773118
+          },
+          {
+            "action": "SPY",
+            "probability": 2.0132309145992622e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 1.3294784366735257e-05
+          }
+        ],
+        "value_estimate_V_s": -3.6932413578033447
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different action.\n        *   Never invent game-state facts.\n        *   Never claim hidden opponent info/future deck order.\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities pi(a|s) and value estimate V(s) provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2 to 4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 99.9%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (99.9%), SWAP (0.1%), SPY (0.0%), TRAP (0.0%)\n        *   Value Estimate V(s): -3.69",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9993222951889038
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0006415708339773118
+        },
+        {
+          "action": "SPY",
+          "probability": 2.0132309145992622e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 1.3294784366735257e-05
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 34,
+    "episode_id": 2,
+    "step_id": 7,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 14,
+        "alive_players_count": 2,
+        "deck_size": 14,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "TRAP",
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "TRAP": 2,
+          "SWAP": 1,
+          "SHIELD": 2,
+          "SPY": 2,
+          "SKIP": 1,
+          "REVERSE": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "REVERSE": 1,
+          "SHIELD": 1,
+          "TRAP": 1,
+          "SKIP": 1,
+          "ATTACK": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9993290901184082,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9993290901184082
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0006353706121444702
+          },
+          {
+            "action": "SPY",
+            "probability": 2.002137443923857e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 1.2979791790712625e-05
+          }
+        ],
+        "value_estimate_V_s": 2.7851853370666504
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable from preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (DRAW), Prob (99.9%), Rank (1 of 7), Top Legal Actions (DRAW 99.9%, SWAP 0.1%, etc.), V(s) (2.79), Hand composition, Deck Size (14), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific fields.\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *   Probability: 99.9% (Very high confidence).\n    *   Value Estimate: 2.79 (Positive, indicates good state",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9993290901184082
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0006353706121444702
+        },
+        {
+          "action": "SPY",
+          "probability": 2.002137443923857e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 1.2979791790712625e-05
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 35,
+    "episode_id": 2,
+    "step_id": 8,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 15,
+        "alive_players_count": 2,
+        "deck_size": 13,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "TRAP",
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "TRAP": 2,
+          "SWAP": 1,
+          "SHIELD": 2,
+          "SPY": 2,
+          "SKIP": 1,
+          "REVERSE": 2
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "REVERSE": 1,
+          "SHIELD": 1,
+          "TRAP": 1,
+          "SKIP": 1,
+          "ATTACK": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9991443157196045,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9991443157196045
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0008116608369164169
+          },
+          {
+            "action": "SPY",
+            "probability": 2.363476960454136e-05
+          },
+          {
+            "action": "TRAP",
+            "probability": 1.7429130821255967e-05
+          }
+        ],
+        "value_estimate_V_s": 6.192546844482422
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info (opponent cards/deck order), no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Evidence Provided:** Selected Action (DRAW), Prob (99.9%), Rank (1 of 7), Top Legal Actions (DRAW 99.9%, SWAP 0.1%, etc.), V(s) = 6.19, Hand composition, Deck Size (13), Pending Forced Draws (1), Alive Players (2), DDA Tier Context (2), Behavioral Profile Context (Cluster 0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: DRAW (Index 9).\n    *",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9991443157196045
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0008116608369164169
+        },
+        {
+          "action": "SPY",
+          "probability": 2.363476960454136e-05
+        },
+        {
+          "action": "TRAP",
+          "probability": 1.7429130821255967e-05
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 36,
+    "episode_id": 2,
+    "step_id": 9,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 18,
+        "alive_players_count": 2,
+        "deck_size": 12,
+        "pending_draw_count": 2,
+        "own_hand_cards": [
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE",
+          "SHIELD",
+          "STEAL"
+        ],
+        "own_hand_counts": {
+          "SWAP": 1,
+          "SHIELD": 3,
+          "SPY": 2,
+          "SKIP": 1,
+          "TRAP": 1,
+          "REVERSE": 2,
+          "STEAL": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 2,
+          "REVERSE": 1,
+          "SHIELD": 1,
+          "TRAP": 2,
+          "SKIP": 1,
+          "ATTACK": 1,
+          "SWAP": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "STEAL",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 8,
+        "chosen_action_name": "STEAL",
+        "chosen_action_probability": 0.9815073013305664,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "STEAL",
+            "probability": 0.9815073013305664
+          },
+          {
+            "action": "DRAW",
+            "probability": 0.018464544788002968
+          },
+          {
+            "action": "SWAP",
+            "probability": 2.6849578716792166e-05
+          },
+          {
+            "action": "SPY",
+            "probability": 6.47199158265721e-07
+          }
+        ],
+        "value_estimate_V_s": 24.806921005249023
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "STEAL",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info (opponent cards/deck), no invented probabilities/Q-values, use actual provided pi(a|s) and V(s), distinguish observable from preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action: STEAL (Index 8), Prob: 98.2%, Rank: 1/8, Top Legal Actions: STEAL (98.2%), DRAW (1.8%), SWAP (0.0%), SPY (0.0%), V(s): 24.81, Hand counts, Deck Size: 12, Pending Forced Draws: 2, Alive Players: 2, DDA Tier Context: 2, Behavioral Profile Context: Cluster 0.\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "STEAL",
+          "probability": 0.9815073013305664
+        },
+        {
+          "action": "DRAW",
+          "probability": 0.018464544788002968
+        },
+        {
+          "action": "SWAP",
+          "probability": 2.6849578716792166e-05
+        },
+        {
+          "action": "SPY",
+          "probability": 6.47199158265721e-07
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 37,
+    "episode_id": 2,
+    "step_id": 10,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 19,
+        "alive_players_count": 2,
+        "deck_size": 12,
+        "pending_draw_count": 2,
+        "own_hand_cards": [
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE",
+          "SHIELD"
+        ],
+        "own_hand_counts": {
+          "SWAP": 1,
+          "SHIELD": 3,
+          "SPY": 2,
+          "SKIP": 1,
+          "TRAP": 1,
+          "REVERSE": 2
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "REVERSE": 1,
+          "SHIELD": 1,
+          "TRAP": 2,
+          "SKIP": 1,
+          "ATTACK": 1,
+          "SWAP": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9980481863021851,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9980481863021851
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0018547934014350176
+          },
+          {
+            "action": "TRAP",
+            "probability": 4.86801473016385e-05
+          },
+          {
+            "action": "SPY",
+            "probability": 4.275024912203662e-05
+          }
+        ],
+        "value_estimate_V_s": 5.285574436187744
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden info (opponent cards, future deck).\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 99.8%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (99.8%), SWAP (0.2%), TRAP (0.0%), SPY (0.0%)\n        *   Value Estimate V(s): 5.29\n        *   Current Hand: SW",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9980481863021851
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0018547934014350176
+        },
+        {
+          "action": "TRAP",
+          "probability": 4.86801473016385e-05
+        },
+        {
+          "action": "SPY",
+          "probability": 4.275024912203662e-05
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 38,
+    "episode_id": 2,
+    "step_id": 11,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 21,
+        "alive_players_count": 2,
+        "deck_size": 9,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE",
+          "SHIELD",
+          "SPY",
+          "SKIP"
+        ],
+        "own_hand_counts": {
+          "SWAP": 1,
+          "SHIELD": 3,
+          "SPY": 3,
+          "SKIP": 2,
+          "TRAP": 1,
+          "REVERSE": 2
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "REVERSE": 1,
+          "SHIELD": 1,
+          "TRAP": 2,
+          "SKIP": 1,
+          "ATTACK": 1,
+          "SWAP": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9960175156593323,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9960175156593323
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.003775312565267086
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.00011992856161668897
+          },
+          {
+            "action": "SPY",
+            "probability": 7.720458961557597e-05
+          }
+        ],
+        "value_estimate_V_s": 6.219907283782959
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:**\n        *   No new actions/recommendations.\n        *   No invented facts (hidden cards, future deck order).\n        *   No hidden knowledge claims.\n        *   No invented probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Concise (2-4 sentences).\n    *   **Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 99.6%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (99.6%), SWAP (0.4%), TRAP (0.0%), SPY (0.0%)\n        *   Value Estimate V(s): 6.22\n        *   Current Hand: SWAP: 1",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9960175156593323
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.003775312565267086
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.00011992856161668897
+        },
+        {
+          "action": "SPY",
+          "probability": 7.720458961557597e-05
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 39,
+    "episode_id": 2,
+    "step_id": 12,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 23,
+        "alive_players_count": 2,
+        "deck_size": 8,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "SPY"
+        ],
+        "own_hand_counts": {
+          "SWAP": 1,
+          "SHIELD": 3,
+          "SPY": 4,
+          "SKIP": 2,
+          "TRAP": 1,
+          "REVERSE": 2
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "REVERSE": 1,
+          "SHIELD": 2,
+          "TRAP": 2,
+          "SKIP": 1,
+          "ATTACK": 1,
+          "SWAP": 1
+        },
+        "legal_actions": [
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9930781722068787,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9930781722068787
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.0065436167642474174
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.00024332560133188963
+          },
+          {
+            "action": "SPY",
+            "probability": 0.00011900026584044099
+          }
+        ],
+        "value_estimate_V_s": 10.544452667236328
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info (opponent cards/deck order), no invented probabilities/Q-values, use actual policy probs/V(s) provided, distinguish observable facts from policy preference, concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Selected Action Probability: 99.3%\n        *   Selected Action Rank: 1 of 7\n        *   Top Legal Actions: DRAW (99.3%), SWAP (0.7%), TRAP (0.0%), SPY (0.0%)\n        *   Value Estimate V(s): 10.54\n        *   Current Hand: SWAP: 1, SHIELD: 3, SPY: 4, SKIP: 2, TRAP: 1, REVERSE: 2\n        *   Deck Size: 8",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9930781722068787
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.0065436167642474174
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.00024332560133188963
+        },
+        {
+          "action": "SPY",
+          "probability": 0.00011900026584044099
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 40,
+    "episode_id": 2,
+    "step_id": 13,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 25,
+        "alive_players_count": 2,
+        "deck_size": 6,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "SPY",
+          "ATTACK"
+        ],
+        "own_hand_counts": {
+          "SWAP": 1,
+          "SHIELD": 3,
+          "SPY": 4,
+          "SKIP": 2,
+          "TRAP": 1,
+          "REVERSE": 2,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "REVERSE": 1,
+          "SHIELD": 2,
+          "TRAP": 2,
+          "SKIP": 1,
+          "ATTACK": 1,
+          "SWAP": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9847591519355774,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9847591519355774
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.014196828939020634
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.0007639244431629777
+          },
+          {
+            "action": "SPY",
+            "probability": 0.00023760968178976327
+          }
+        ],
+        "value_estimate_V_s": 12.760871887207031
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Constraints:**\n        *   Never select/recommend different actions.\n        *   Never invent game-state facts.\n        *   Never claim hidden info (opponent cards, future deck).\n        *   Never invent probabilities/Q-values for PPO (use provided ones).\n        *   Use actual policy probabilities and value estimates provided.\n        *   Distinguish observable facts from policy preference.\n        *   Keep explanation concise (2-4 sentences).\n    *   **Input Evidence:**\n        *   Selected Action: DRAW (Index 9)\n        *   Probability: 98.5%\n        *   Rank: 1 of 8\n        *   Top Legal Actions: DRAW (98.5%), SWAP (1.4%), TRAP (0.1%), SPY (0.0%)\n        *   Value Estimate V(s): 12.76\n        *   Current Hand: SWAP:",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9847591519355774
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.014196828939020634
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.0007639244431629777
+        },
+        {
+          "action": "SPY",
+          "probability": 0.00023760968178976327
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 41,
+    "episode_id": 2,
+    "step_id": 14,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 27,
+        "alive_players_count": 2,
+        "deck_size": 5,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "SPY",
+          "ATTACK",
+          "SKIP"
+        ],
+        "own_hand_counts": {
+          "SWAP": 1,
+          "SHIELD": 3,
+          "SPY": 4,
+          "SKIP": 3,
+          "TRAP": 1,
+          "REVERSE": 2,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "REVERSE": 1,
+          "SHIELD": 2,
+          "TRAP": 2,
+          "SKIP": 1,
+          "ATTACK": 2,
+          "SWAP": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 9,
+        "chosen_action_name": "DRAW",
+        "chosen_action_probability": 0.9245948791503906,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "DRAW",
+            "probability": 0.9245948791503906
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.06299930065870285
+          },
+          {
+            "action": "TRAP",
+            "probability": 0.010911291465163231
+          },
+          {
+            "action": "SPY",
+            "probability": 0.0010828613303601742
+          }
+        ],
+        "value_estimate_V_s": 11.044008255004883
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "DRAW",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Strict Rules:** No new actions, no invented facts, no hidden info (opponent cards/deck), no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action: DRAW (Index 9), Prob: 92.5%, Rank: 1 of 8, Top Legal Actions: DRAW (92.5%), SWAP (6.3%), TRAP (1.1%), SPY (0.1%), V(s): 11.04, Hand details, Deck Size: 5, Pending Forced Draws: 1, Alive Players: 2, DDA Tier Context: 2, Behavioral Profile Context: Cluster 0.\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Evaluate Evidence",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "DRAW",
+          "probability": 0.9245948791503906
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.06299930065870285
+        },
+        {
+          "action": "TRAP",
+          "probability": 0.010911291465163231
+        },
+        {
+          "action": "SPY",
+          "probability": 0.0010828613303601742
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  },
+  {
+    "record_id": 42,
+    "episode_id": 2,
+    "step_id": 15,
+    "seed": 44,
+    "backend": "OllamaBackend",
+    "model_name": "qwen3.5:4b",
+    "evidence": {
+      "state_facts": {
+        "player_id": 0,
+        "turn_index": 28,
+        "alive_players_count": 2,
+        "deck_size": 4,
+        "pending_draw_count": 1,
+        "own_hand_cards": [
+          "SWAP",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "TRAP",
+          "SPY",
+          "REVERSE",
+          "SHIELD",
+          "REVERSE",
+          "SHIELD",
+          "SPY",
+          "SKIP",
+          "SPY",
+          "ATTACK",
+          "SKIP",
+          "REVERSE"
+        ],
+        "own_hand_counts": {
+          "SWAP": 1,
+          "SHIELD": 3,
+          "SPY": 4,
+          "SKIP": 3,
+          "TRAP": 1,
+          "REVERSE": 3,
+          "ATTACK": 1
+        },
+        "public_discard_counts": {
+          "STEAL": 3,
+          "REVERSE": 1,
+          "SHIELD": 2,
+          "TRAP": 2,
+          "SKIP": 1,
+          "ATTACK": 2,
+          "SWAP": 1
+        },
+        "legal_actions": [
+          "ATTACK",
+          "SHIELD",
+          "SKIP",
+          "REVERSE",
+          "SPY",
+          "SWAP",
+          "TRAP",
+          "DRAW"
+        ],
+        "action_mask": [
+          false,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          true,
+          false,
+          true
+        ]
+      },
+      "policy_evidence": {
+        "chosen_action_idx": 7,
+        "chosen_action_name": "TRAP",
+        "chosen_action_probability": 0.4345126450061798,
+        "chosen_action_rank": 1,
+        "top_legal_actions": [
+          {
+            "action": "TRAP",
+            "probability": 0.4345126450061798
+          },
+          {
+            "action": "SWAP",
+            "probability": 0.286835253238678
+          },
+          {
+            "action": "DRAW",
+            "probability": 0.2632851004600525
+          },
+          {
+            "action": "SPY",
+            "probability": 0.00583388889208436
+          }
+        ],
+        "value_estimate_V_s": 12.007165908813477
+      },
+      "context": {
+        "profiler_cluster": 0,
+        "dda_difficulty_level": 2,
+        "dda_checkpoint_name": "MaskedDQN_Final"
+      }
+    },
+    "explanation_output": {
+      "selected_action": "TRAP",
+      "explanation": "Thinking Process:\n\n1.  **Analyze the Request:**\n    *   **Role:** Explanation generator for a reinforcement-learning card-game agent.\n    *   **Task:** Explain the ALREADY-SELECTED action using ONLY supplied factual evidence.\n    *   **Rules:** No new actions, no invented facts, no hidden info, no invented probabilities/Q-values, use actual policy probs/V(s), distinguish observable vs preference, concise (2-4 sentences).\n    *   **Input Evidence:** Selected Action (TRAP), Prob (43.5%), Rank (1 of 8), Top Legal Actions (TRAP, SWAP, DRAW, SPY), V(s) (12.01), Hand details, Deck Size (4), Pending Draws (1), Alive Players (2), DDA Tier (2), Profile Cluster (0).\n    *   **Output Format:** JSON with specific keys (\"selected_action\", \"explanation\", \"evidence\", \"legal_alternatives\", \"grounding_status\").\n\n2.  **Analyze the Evidence:**\n    *   Action: TRAP (Index 7).\n    *   Prob: 43.5% (Highest among top legal actions).\n    *",
+      "evidence": [
+        "Raw text response received"
+      ],
+      "legal_alternatives": [
+        {
+          "action": "TRAP",
+          "probability": 0.4345126450061798
+        },
+        {
+          "action": "SWAP",
+          "probability": 0.286835253238678
+        },
+        {
+          "action": "DRAW",
+          "probability": 0.2632851004600525
+        },
+        {
+          "action": "SPY",
+          "probability": 0.00583388889208436
+        }
+      ],
+      "grounding_status": "UNPARSED",
+      "validation": {
+        "grounded": false,
+        "selected_action_consistent": true,
+        "probabilities_consistent": true,
+        "legal_actions_consistent": true,
+        "state_facts_consistent": true,
+        "hidden_information_violation": false,
+        "q_value_violation": true,
+        "action_substitution": false
+      }
+    }
+  }
+]

@@ -1,0 +1,52 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual Environments
+venv/
+.venv/
+ENV/
+env.bak/
+# (Crucial: env/ contains the card game environment code, so do not ignore it)
+!env/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# OS-generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE & Editor settings
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Runtime logs & TensorBoard
+*.log
+tb_logs/
+
+# Presentation, Reports & Non-Deployment Files
+PPTperfromance.pdf
+*.pdf
+report/
+output/
+docs/
+results/
+
+# Frontend & Core Assets: Explicitly tracked
+!ui/
+!ui/static/
+!ui/templates/
+!checkpoints/

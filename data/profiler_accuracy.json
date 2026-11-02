@@ -1,0 +1,82 @@
+{
+  "n_samples": 239,
+  "n_archetypes": 4,
+  "k_used": 4,
+  "adjusted_rand_index": 0.332,
+  "purity": 0.5565,
+  "macro_f1": 0.5436,
+  "per_class": {
+    "aggressive": {
+      "precision": 0.3529,
+      "recall": 0.2,
+      "f1": 0.2553,
+      "support": 60
+    },
+    "defensive": {
+      "precision": 0.431,
+      "recall": 0.4237,
+      "f1": 0.4274,
+      "support": 59
+    },
+    "disruptive": {
+      "precision": 0.4205,
+      "recall": 0.6167,
+      "f1": 0.5,
+      "support": 60
+    },
+    "hoarder": {
+      "precision": 1.0,
+      "recall": 0.9833,
+      "f1": 0.9916,
+      "support": 60
+    }
+  },
+  "confusion_matrix": {
+    "rows_true": [
+      "aggressive",
+      "defensive",
+      "disruptive",
+      "hoarder"
+    ],
+    "cols_pred": [
+      "aggressive",
+      "defensive",
+      "disruptive",
+      "hoarder"
+    ],
+    "matrix": [
+      [
+        12,
+        20,
+        28,
+        0
+      ],
+      [
+        12,
+        25,
+        22,
+        0
+      ],
+      [
+        10,
+        13,
+        37,
+        0
+      ],
+      [
+        0,
+        0,
+        1,
+        59
+      ]
+    ]
+  },
+  "silhouette_by_k": {
+    "2": 0.3275,
+    "3": 0.2368,
+    "4": 0.214,
+    "5": 0.207,
+    "6": 0.1819
+  },
+  "note": "ARI = 0 means chance-level agreement, 1 a perfect partition. Features are standardized before clustering; without this the turn-count feature dominates the Euclidean objective."
+}

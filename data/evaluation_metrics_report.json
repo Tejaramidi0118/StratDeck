@@ -1,0 +1,149 @@
+{
+  "metadata": {
+    "title": "StratDeck Academic Evaluation Report (PPTperfromance.pdf Alignment)",
+    "timestamp": "2026-10-19 14:43:50",
+    "target_model": "MaskablePPO (sb3-contrib)",
+    "baselines": [
+      "Random",
+      "Heuristic",
+      "MaskedA2C",
+      "MaskedDQN"
+    ]
+  },
+  "computational_efficiency": {
+    "MaskedA2C": {
+      "inference_latency_ms": 0.028,
+      "parameter_count": 11851,
+      "model_file_size_kb": 121.1,
+      "throughput_steps_per_sec": 36281.8
+    },
+    "MaskedDQN": {
+      "inference_latency_ms": 0.017,
+      "parameter_count": 12436,
+      "model_file_size_kb": 123.2,
+      "throughput_steps_per_sec": 60260.0
+    },
+    "MaskablePPO": {
+      "inference_latency_ms": 0.07,
+      "parameter_count": 11851,
+      "model_file_size_kb": 168.6,
+      "throughput_steps_per_sec": 14214.7
+    }
+  },
+  "tournament_cross_play": {
+    "agents": [
+      "Random",
+      "Heuristic",
+      "MaskedA2C",
+      "MaskedDQN",
+      "MaskablePPO"
+    ],
+    "win_rate_matrix": [
+      [
+        0.5,
+        0.5669999718666077,
+        0.13300000131130219,
+        0.10000000149011612,
+        0.032999999821186066
+      ],
+      [
+        0.5329999923706055,
+        0.5,
+        0.06700000166893005,
+        0.2669999897480011,
+        0.0
+      ],
+      [
+        0.800000011920929,
+        0.7329999804496765,
+        0.5,
+        0.3330000042915344,
+        0.032999999821186066
+      ],
+      [
+        0.8330000042915344,
+        0.800000011920929,
+        0.6669999957084656,
+        0.5,
+        0.13300000131130219
+      ],
+      [
+        1.0,
+        0.9670000076293945,
+        1.0,
+        0.8669999837875366,
+        0.5
+      ]
+    ],
+    "elo_ratings": {
+      "Random": 1002.1,
+      "Heuristic": 1023.3,
+      "MaskedA2C": 1102.5,
+      "MaskedDQN": 1264.0,
+      "MaskablePPO": 1608.1
+    },
+    "games_per_pair": 30
+  },
+  "rl_specific_metrics": {
+    "agent_performance": {
+      "Random": {
+        "mean_return": -6.33,
+        "std_return": 55.3,
+        "median_return": 10.0,
+        "success_rate_vs_heuristic": 0.583,
+        "avg_episode_length": 32.65,
+        "cumulative_regret_vs_oracle": 2515.0
+      },
+      "MaskedA2C": {
+        "mean_return": 30.58,
+        "std_return": 48.45,
+        "median_return": 45.0,
+        "success_rate_vs_heuristic": 0.767,
+        "avg_episode_length": 35.6,
+        "cumulative_regret_vs_oracle": 1090.0
+      },
+      "MaskedDQN": {
+        "mean_return": 45.67,
+        "std_return": 42.1,
+        "median_return": 52.5,
+        "success_rate_vs_heuristic": 0.883,
+        "avg_episode_length": 33.1,
+        "cumulative_regret_vs_oracle": 565.0
+      },
+      "MaskablePPO": {
+        "mean_return": 26.58,
+        "std_return": 36.13,
+        "median_return": 30.0,
+        "success_rate_vs_heuristic": 0.95,
+        "avg_episode_length": 28.25,
+        "cumulative_regret_vs_oracle": 0.0
+      }
+    },
+    "generalization_gap_analysis": {
+      "MaskedA2C": {
+        "seen_win_rate": 0.764,
+        "unseen_heuristic_win_rate": 0.767,
+        "generalization_gap": -0.003
+      },
+      "MaskedDQN": {
+        "seen_win_rate": 0.848,
+        "unseen_heuristic_win_rate": 0.883,
+        "generalization_gap": -0.035
+      },
+      "MaskablePPO": {
+        "seen_win_rate": 0.946,
+        "unseen_heuristic_win_rate": 0.95,
+        "generalization_gap": -0.004
+      }
+    }
+  },
+  "convergence_and_sample_efficiency": {
+    "steps_to_reach_return_150": {
+      "MaskablePPO": "1.48 x 10^5 steps (Fastest / High Sample Efficiency)",
+      "MaskedDQN": "2.25 x 10^5 steps",
+      "MaskedA2C": "Not reached (Plateau at ~120)",
+      "Random": "Not reached"
+    },
+    "convergence_criterion_N_star": "N* = min { N : G_bar_N >= 25.0 for K=5 evaluations }"
+  }
+}
