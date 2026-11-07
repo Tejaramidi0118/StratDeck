@@ -1,0 +1,12 @@
+# Render Blueprint for StratDeck Zero-Latency Client-Side Hosting
+services:
+  - type: web
+    name: stratdeck
+    env: static
+    buildCommand: ""
+    staticPublishPath: "./"
+    headers:
+      - path: /*
+        name: Cache-Control
+        value: public, max-age=3600
+
