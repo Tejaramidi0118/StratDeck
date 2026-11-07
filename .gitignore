@@ -38,6 +38,8 @@ Thumbs.db
 tb_logs/
 
 # Presentation, Reports & Non-Deployment Files
+StratDeck_Amrita.pptx
+*.pptx
 PPTperfromance.pdf
 *.pdf
 report/

@@ -196,6 +196,28 @@ function updateTutorialCoachForGameState(state) {
 document.addEventListener("DOMContentLoaded", () => {
     checkHealthStatus();
     loadResearchMetrics();
+
+    // Direct screenshot/URL navigation support
+    const urlParams = new URLSearchParams(window.location.search);
+    const viewParam = urlParams.get("view");
+    if (viewParam === "rules") {
+        openModal("howItWorksModal");
+    } else if (viewParam === "game") {
+        startNewGame("1v1", 2);
+    } else if (viewParam === "insights") {
+        startNewGame("1v1", 2).then(() => {
+            const drw = document.getElementById("aiInsightsDrawer");
+            if (drw) {
+                drw.style.transition = "none";
+                drw.classList.add("open");
+                drw.style.right = "0px";
+            }
+        });
+    } else if (viewParam === "actionlog") {
+        startNewGame("1v1", 2).then(() => {
+            openModal("actionLogModal");
+        });
+    }
 });
 
 let IS_STARTING_GAME = false;

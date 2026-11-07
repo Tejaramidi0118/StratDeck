@@ -39,6 +39,7 @@ class MockBackend(LLMBackend):
             alternatives = []
             v_s = 0.0
 
+            deck_sz = 20
             for line in lines:
                 if "- Selected Action:" in line:
                     chosen_action = line.split("- Selected Action:")[1].strip().split()[0]
@@ -47,9 +48,13 @@ class MockBackend(LLMBackend):
                     chosen_prob = float(p_str) / 100.0 if float(p_str) > 1.0 else float(p_str)
                 elif "- Value Estimate V(s):" in line:
                     v_s = float(line.split("- Value Estimate V(s):")[1].strip())
-                elif "- Top Legal Actions:" in line:
-                    # Parse "ATTACK (61.0%), SHIELD (18.0%), SPY (12.0%)"
-                    raw_alts = line.split("- Top Legal Actions:")[1].strip()
+                elif "- Deck Size:" in line:
+                    try:
+                        deck_sz = int(line.split("- Deck Size:")[1].strip().split()[0])
+                    except Exception:
+                        pass
+                elif "- Available Legal Actions & Policy Probabilities:" in line or "- Top Legal Actions:" in line:
+                    raw_alts = line.split(":")[-1].strip()
                     parts = raw_alts.split(",")
                     for part in parts:
                         p = part.strip()
@@ -65,14 +70,15 @@ class MockBackend(LLMBackend):
             res = {
                 "selected_action": chosen_action,
                 "explanation": (
-                    f"The RL agent selected {chosen_action} with a policy probability of {chosen_prob:.1%}, "
-                    f"which was the top-ranked choice among legal actions. Legal alternatives considered: {alt_str}. "
-                    f"Value estimate V(s) is {v_s:.2f}."
+                    f"The MaskablePPO agent selected {chosen_action} with a policy probability of {chosen_prob:.1%}, "
+                    f"which was the top-ranked move among legal options. With a deck size of {deck_sz} cards, "
+                    f"this choice strategically balances survival risk against legal alternatives ({alt_str}). "
+                    f"The model's state-value estimate V(s) is {v_s:.2f}, reflecting expected long-term match return."
                 ),
                 "evidence": [
                     f"Selected action {chosen_action} has policy probability {chosen_prob:.1%}",
-                    f"Legal alternatives considered: {alt_str}",
-                    f"Value estimate V(s) is {v_s:.2f}"
+                    f"Legal alternatives evaluated: {alt_str}",
+                    f"Deck size is {deck_sz} cards with state value V(s) = {v_s:.2f}"
                 ],
                 "legal_alternatives": alternatives[:3],
                 "grounding_status": "SUPPORTED"
@@ -134,7 +140,7 @@ class OllamaBackend(LLMBackend):
             "stream": False,
             "think": False,
             "options": {
-                "num_predict": 300,
+                "num_predict": 500,
                 "temperature": 0.2
             }
         }).encode("utf-8")
@@ -190,41 +196,58 @@ class ExplainerModule:
         pe = evidence["policy_evidence"]
         ctx = evidence["context"]
 
+        deck_sz = int(sf["deck_size"])
+        danger_ratio = f"1 in {max(1, deck_sz)}"
+
         top_alts_str = ", ".join([f"{item['action']} ({item['probability']:.1%})" for item in pe["top_legal_actions"]])
         hand_str = ", ".join([f"{k}: {v}" for k, v in sf["own_hand_counts"].items()]) or "empty"
 
+        alts_example = json.dumps([
+            {"action": item["action"], "probability": round(float(item["probability"]), 3)}
+            for item in pe["top_legal_actions"]
+            if item["action"] != pe["chosen_action_name"]
+        ][:3])
+
+        act_name = pe["chosen_action_name"]
+        act_prob_str = f"{pe['chosen_action_probability']:.1%}"
+        v_s_str = f"{pe['value_estimate_V_s']:.2f}"
+
         prompt = (
             "ROLE:\n"
-            "You are an explanation generator for a reinforcement-learning card-game agent.\n\n"
+            "You are the strategic explanation engine for 'StratDeck', an adversarial reinforcement learning (RL) survival card game.\n"
+            "The agent is a trained MaskablePPO policy operating under strict action masking.\n\n"
+            "GAME RULES & TACTICAL MECHANICS:\n"
+            "- Core Objective: Survive and eliminate opponents. The draw deck contains a lethal instant-elimination 'HITMAN' bomb card.\n"
+            f"- Drawing cards carries lethal risk: current deck size is {deck_sz} cards (odds of drawing Hitman are roughly {danger_ratio}).\n"
+            "- SHIELD: Automatically defuses a drawn HITMAN card (saving player's life), or can be played to skip a draw.\n"
+            "- ATTACK: Concludes turn without drawing, forcing the opponent to take 2 consecutive turns (forcing them into dangerous draws).\n"
+            "- SKIP / REVERSE: Safely concludes turn without drawing from the deck.\n"
+            "- TRAP: Sets a penalty forcing the opponent to draw an extra card on their next draw.\n"
+            "- SPY / STEAL / SWAP: Free utility cards (0-cost, turn continues) that provide recon, theft, or card exchange.\n"
+            "- DRAW: Concludes turn by drawing 1 card from the deck. Expands hand resources, but risks instant elimination if HITMAN is drawn.\n\n"
             "TASK:\n"
-            "Explain the ALREADY-SELECTED action using ONLY the supplied factual evidence.\n\n"
-            "EVIDENCE HIERARCHY:\n"
-            "1. Level 1 (Primary Policy Evidence): Selected action, selected action probability pi(a|s), rank, and probabilities of legal alternatives.\n"
-            "2. Level 2 (Observable State): Own hand, legal actions, deck size, pending forced draws, alive players.\n"
-            "3. Level 3 (Value Estimate): V(s) is the model's state-value estimate. Describe it only as state value; DO NOT claim V(s) caused the action selection or infer Q-values.\n\n"
-            "STRICT RULES:\n"
-            "- Do NOT claim V(s) directly caused the action selection.\n"
-            "- Do NOT say 'the agent knew', 'the agent determined', 'the opponent probably', 'sole viable strategy', 'only viable strategy', 'action was optimal', or 'had to choose'.\n"
-            "- Do NOT invent opponent hidden cards, deck order, or unsupplied facts.\n"
-            "- Explain primarily using Level 1 and Level 2 evidence in an objective, post-hoc natural language style.\n\n"
+            f"Generate a comprehensive, insightful, and detailed tactical explanation (3 to 5 full sentences) explaining why the RL agent chose {act_name} in this exact situation.\n\n"
             "EVIDENCE:\n"
-            f"- Selected Action: {pe['chosen_action_name']} (Index {pe['chosen_action_idx']})\n"
-            f"- Selected Action Probability: {pe['chosen_action_probability']:.1%}\n"
-            f"- Selected Action Rank: {pe['chosen_action_rank']} of {len(sf['legal_actions'])}\n"
-            f"- Top Legal Actions: {top_alts_str}\n"
-            f"- Value Estimate V(s): {pe['value_estimate_V_s']:.2f}\n"
-            f"- Current Hand: {hand_str}\n"
-            f"- Deck Size: {sf['deck_size']}\n"
-            f"- Pending Forced Draws: {sf['pending_draw_count']}\n"
-            f"- Alive Players: {sf['alive_players_count']}\n"
-            f"- DDA Tier Context: {ctx.get('dda_difficulty_level', 'N/A')}\n"
-            f"- Behavioral Profile Context: Cluster {ctx.get('profiler_cluster', 'N/A')}\n\n"
-            "OUTPUT FORMAT (JSON ONLY):\n"
+            f"- Selected Action: {act_name} (Policy Probability: {act_prob_str}, Rank: #{pe['chosen_action_rank']})\n"
+            f"- Available Legal Actions & Policy Probabilities: {top_alts_str}\n"
+            f"- Agent State-Value Estimate V(s): {v_s_str} (expected match return)\n"
+            f"- Agent Current Hand: {hand_str}\n"
+            f"- Deck Size: {deck_sz} cards (Hitman odds: {danger_ratio})\n"
+            f"- Pending Forced Draws on Agent: {sf['pending_draw_count']}\n"
+            f"- Active Players Remaining: {sf['alive_players_count']}\n"
+            f"- Opponent Behavioral Profile: Cluster {ctx.get('profiler_cluster', 'N/A')}\n\n"
+            "STRICT RULES:\n"
+            f"1. Detail the strategic rationale of choosing {act_name} in relation to the current deck size ({deck_sz}), Hitman risk ({danger_ratio}), and hand resources.\n"
+            "2. Compare it to the legal alternatives (e.g., why this action was prioritized over other options).\n"
+            f"3. Mention the exact policy probability ({act_prob_str}) and state-value V(s) ({v_s_str}).\n"
+            f"4. IMPORTANT: Do NOT use the '%' symbol for anything other than the exact action probabilities provided above (e.g., write 'odds are {danger_ratio}' instead of a percentage for the deck danger).\n"
+            "5. FORBIDDEN WORDS: Do NOT use words like 'determined', 'knew', 'optimal', 'sole viable strategy', 'caused the action', 'Q-value', or recommend alternative moves.\n\n"
+            "OUTPUT FORMAT (Return valid JSON ONLY, no extra text):\n"
             "{\n"
-            '  "selected_action": "' + pe['chosen_action_name'] + '",\n'
-            '  "explanation": "<2-3 sentence objective explanation grounded in Level 1 & 2 evidence>",\n'
-            '  "evidence": ["<bullet point 1>", "<bullet point 2>"],\n'
-            '  "legal_alternatives": [{"action": "<name>", "probability": <float>}],\n'
+            '  "selected_action": "' + act_name + '",\n'
+            '  "explanation": "<Detailed 3-5 sentence tactical explanation grounded in StratDeck game rules and policy evidence>",\n'
+            '  "evidence": ["Selected action ' + act_name + ' with policy probability ' + act_prob_str + '", "Current deck size ' + str(deck_sz) + ' with ' + danger_ratio + ' Hitman odds", "State-value estimate V(s) is ' + v_s_str + '"],\n'
+            '  "legal_alternatives": ' + alts_example + ',\n'
             '  "grounding_status": "SUPPORTED"\n'
             "}"
         )
