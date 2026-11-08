@@ -207,12 +207,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 drw.style.right = "0px";
             }
         });
-    } else if (viewParam === "testmove") {
-        startNewGame("1v1", 2).then(() => {
-            setTimeout(() => {
-                handleDrawClick();
-            }, 300);
-        });
     } else if (viewParam === "actionlog") {
         startNewGame("1v1", 2).then(() => {
             openModal("actionLogModal");
@@ -647,9 +641,8 @@ function renderGameState(state) {
         }
     }
 
-    // 3. MULTI-ACTION ROUND SEQUENCE TRAY (HIDDEN FOR STRICT 1-ACTION-PER-TURN)
-    const seqTray = document.getElementById("aiActionSequenceTray");
-    if (seqTray) seqTray.style.display = "none";
+    // 3. RL AGENT PLAYED CARD DISPLAY
+    renderAIActionSequenceTray(seqList);
 
     // 4. AI HERO PLAYED CARD SLOT (CENTER BOARD WITH CARD DROP ANIMATION)
     const heroCard = document.getElementById("aiPlayedHeroCard");
@@ -661,7 +654,9 @@ function renderGameState(state) {
     if (latestAI) {
         const aiName = latestAI.action;
         const info = CARD_INFO[aiName] || { icon: "🤖", type: "AI Move", desc: aiName };
-        const probStr = (latestAI.probability * 100).toFixed(0);
+        const rawProb = latestAI.probability || 0.85;
+        const probVal = rawProb > 1 ? (rawProb <= 100 ? rawProb : rawProb / 100) : rawProb * 100;
+        const probStr = probVal.toFixed(0);
 
         // Re-trigger card drop animation on every agent step
         heroCard.classList.remove("card-dropping");
@@ -793,13 +788,61 @@ function renderGameState(state) {
     }
 }
 
-// MULTI-ACTION SEQUENCE TRAY (DISABLED FOR STRICT 1-ACTION-PER-TURN)
+// RENDER RL AGENT PLAYED CARD
 function renderAIActionSequenceTray(seqList) {
     const seqTray = document.getElementById("aiActionSequenceTray");
-    if (seqTray) {
+    const seqCards = document.getElementById("aiActionSequenceCards");
+    const trayTitle = document.getElementById("aiTrayTitle");
+    if (!seqTray || !seqCards) return;
+
+    if (seqList && seqList.length > 0) {
+        seqTray.classList.remove("hidden");
+        seqTray.style.display = "flex";
+        seqCards.innerHTML = "";
+        
+        if (trayTitle) {
+            trayTitle.innerText = seqList.length > 1 ? "RL AGENT PLAYED CARDS (ATTACK OBLIGATION)" : "RL AGENT PLAYED CARD";
+        }
+
+        seqList.forEach((step, idx) => {
+            const sInfo = CARD_INFO[step.action] || { icon: "🃏", type: "Action", desc: step.action };
+            const isLast = (idx === seqList.length - 1);
+            let effectNote = "";
+            if (step.action === "STEAL") effectNote = "Stole card from you";
+            else if (step.action === "SWAP") effectNote = "Swapped cards with you";
+            else if (step.action === "TRAP") effectNote = "Forces 2x Draw";
+            else if (step.action === "ATTACK") effectNote = "Forces 2 Turns onto you";
+            else if (step.action === "SPY") effectNote = "Peeked top 3 cards";
+            else if (step.action === "SKIP") effectNote = "Skipped turn";
+            else if (step.action === "REVERSE") effectNote = "Reversed turn";
+            else if (step.action === "DRAW") effectNote = "Drawn card from deck";
+
+            const rawProb = step.probability || 0.85;
+            const probVal = rawProb > 1 ? (rawProb <= 100 ? rawProb : rawProb / 100) : rawProb * 100;
+            const probStr = probVal.toFixed(0);
+
+            const stepCard = document.createElement("div");
+            stepCard.className = `sequence-card-item card-${step.action} is-core`;
+            stepCard.innerHTML = `
+                <div class="sequence-card-icon" style="font-size: 2rem; margin-right: 8px;">${sInfo.icon}</div>
+                <div class="sequence-card-details">
+                    <span class="sequence-card-title" style="font-size: 1.05rem; font-weight: 800; color: #0f172a;">${step.action}</span>
+                    <span class="sequence-card-prob" style="font-size: 0.78rem; color: #0284c7; font-weight: 700;">${probStr}% Confidence</span>
+                    ${effectNote ? `<span class="sequence-effect-badge" style="font-size: 0.75rem; color: #b91c1c; font-weight: 700; margin-top: 3px;">⚡ ${effectNote}</span>` : ''}
+                </div>
+            `;
+            seqCards.appendChild(stepCard);
+
+            if (!isLast) {
+                const arrow = document.createElement("div");
+                arrow.className = "sequence-arrow";
+                arrow.innerText = "➔";
+                seqCards.appendChild(arrow);
+            }
+        });
+    } else {
         seqTray.classList.add("hidden");
         seqTray.style.display = "none";
-        seqTray.innerHTML = "";
     }
 }
 

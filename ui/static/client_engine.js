@@ -595,8 +595,8 @@
         const engine = sess.engine;
         sess.recent_ai_actions = [];
 
-        // Strict 1-card-per-turn: execute exactly ONE AI action
-        if (!engine.gameOver && engine.currentPlayer === 1) {
+        // Run AI turns until turn passes back to human (prevents game from getting stuck on ATTACK)
+        while (!engine.gameOver && engine.currentPlayer === 1) {
             const obs = engine.encodeObs(1);
             const mask = engine.getActionMask(1);
 
@@ -644,16 +644,19 @@
                 {}
             );
 
+            const rawProb = pred.probability || 0.85;
+            const probPct = rawProb > 1 ? (rawProb <= 100 ? rawProb : rawProb / 100) : rawProb * 100;
+
             const decisionSummary = {
                 action: chosenName,
-                probability: parseFloat(((pred.probability || 0.85) * 100).toFixed(1)),
+                probability: parseFloat(probPct.toFixed(1)),
                 rank: 1,
                 top_legal_actions: topLegal.slice(0, 3),
                 value_estimate: parseFloat((pred.value || 0.25).toFixed(3)),
                 explanation: explanation
             };
 
-            sess.recent_ai_actions = [decisionSummary];
+            sess.recent_ai_actions.push(decisionSummary);
             sess.latest_ai_decision = decisionSummary;
 
             const res = engine.step(chosenAct);
@@ -676,6 +679,7 @@
             if (res.done) {
                 if (res.winner === 0) winHistory.push(1);
                 else if (res.winner === 1) winHistory.push(0);
+                break;
             }
         }
     }

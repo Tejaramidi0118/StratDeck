@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/static/app.css?v=11">
+    <link rel="stylesheet" href="/static/app.css?v=12">
 </head>
 <body class="dark-game-theme">
     <!-- APP CONTAINER -->
@@ -193,6 +193,17 @@
                 <div id="oppPlayedBanner" class="opp-played-banner">
                     <span id="oppBannerTag" class="opp-banner-tag start-tag">🎮 GAME START</span>
                     <span id="oppPlayedText" class="opp-banner-text">Match started. You have the first turn! Choose a card from your hand.</span>
+                </div>
+
+                <!-- RL AGENT PLAYED CARD TRAY -->
+                <div id="aiActionSequenceTray" class="ai-sequence-tray hidden">
+                    <div class="sequence-tray-header">
+                        <span class="tray-icon">🤖</span>
+                        <span class="tray-title" id="aiTrayTitle">RL AGENT PLAYED CARD</span>
+                    </div>
+                    <div id="aiActionSequenceCards" class="sequence-cards-grid">
+                        <!-- Card played by RL Agent -->
+                    </div>
                 </div>
 
                 <!-- CENTER MAT: DECK, AI HERO PLAYED CARD, DISCARD -->
@@ -871,8 +882,8 @@
 
     </div>
 
-    <script src="/static/model_weights.js?v=11"></script>
-    <script src="/static/client_engine.js?v=11"></script>
-    <script src="/static/app.js?v=11"></script>
+    <script src="/static/model_weights.js?v=12"></script>
+    <script src="/static/client_engine.js?v=12"></script>
+    <script src="/static/app.js?v=12"></script>
 </body>
 </html>
