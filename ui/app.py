@@ -227,9 +227,7 @@ def create_ai_policy_wrapper(sess, controller):
         sess["last_ai_explanation"] = None  # Reset explanation for new action
 
         ai_action_name = action_to_name(ai_act_int)
-        is_ai_util = ai_action_name in ["SPY", "SWAP", "STEAL"]
-        ai_note = " (Utility - Turn Continues)" if is_ai_util else ""
-        sess["action_log"].append(f"Turn {env.engine.turn_index}: RL Agent played {ai_action_name}{ai_note}")
+        sess["action_log"].append(f"Turn {env.engine.turn_index}: RL Agent played {ai_action_name}")
 
         # Accumulate multi-action turn sequence for visual card drop in UI
         sess.setdefault("recent_ai_actions", []).append({
@@ -239,7 +237,7 @@ def create_ai_policy_wrapper(sess, controller):
             "top_legal_actions": ai_evidence["policy_evidence"]["top_legal_actions"],
             "value_estimate": float(ai_evidence["policy_evidence"]["value_estimate_V_s"]),
             "turn_index": int(env.engine.turn_index),
-            "is_utility": is_ai_util
+            "is_utility": False
         })
 
         return chosen_card
@@ -388,10 +386,7 @@ def watch_step():
     sess["last_ai_explanation"] = None
 
     action_name = action_to_name(chosen_action_idx)
-    is_util = action_name in ["SPY", "SWAP", "STEAL"]
-    note = " (Utility - Turn Continues)" if is_util else ""
-
-    sess["action_log"].append(f"Turn {engine.turn_index}: {actor_label} played {action_name}{note}")
+    sess["action_log"].append(f"Turn {engine.turn_index}: {actor_label} played {action_name}")
 
     sess["recent_ai_actions"] = [{
         "actor_id": actor_id,
@@ -486,9 +481,7 @@ def submit_human_action():
         return jsonify({"error": f"Action index {action_idx} is currently masked/illegal for Human player."}), 400
 
     human_action_name = action_to_name(action_idx)
-    is_util = human_action_name in ["SPY", "SWAP", "STEAL"]
-    note = " (Utility - Turn Continues)" if is_util else ""
-    sess["action_log"].append(f"Turn {env.engine.turn_index}: You played {human_action_name}{note}")
+    sess["action_log"].append(f"Turn {env.engine.turn_index}: You played {human_action_name}")
 
     # Reset per-round recent lists before executing
     sess["recent_ai_actions"] = []

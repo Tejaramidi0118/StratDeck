@@ -14,7 +14,7 @@ const CARD_INFO = {
     "SHIELD":  { icon: "🛡️", type: "Defensive",   desc: "Auto-defuse: Protects against drawing a lethal HITMAN card" },
     "SKIP":    { icon: "⏭️", type: "Tactical",    desc: "Pass turn immediately to next player without drawing" },
     "REVERSE": { icon: "🔄", type: "Tactical",    desc: "Reverse turn direction (acts as Skip in 2-player match)" },
-    "SPY":     { icon: "👁️", type: "Information", desc: "Peek top 3 deck cards without ending your turn" },
+    "SPY":     { icon: "👁️", type: "Information", desc: "Peek top 3 deck cards to inspect upcoming danger" },
     "SWAP":    { icon: "🔀", type: "Disruptive",  desc: "Swap a random card from your hand with opponent" },
     "TRAP":    { icon: "🪤", type: "Disruptive",  desc: "Set forced double draw on opponent on next draw" },
     "STEAL":   { icon: "💰", type: "Disruptive",  desc: "Steal 1 random card directly from opponent's hand" },
@@ -30,13 +30,13 @@ const TUTORIAL_STEPS = [
         badge: "Step 1 of 4: Survival Objective",
         title: "🎯 Objective: Outsurvive the Lethal HITMAN",
         text: "StratDeck is a survival card game modeled after Russian Roulette and Exploding Kittens. In the deck is 1 lethal <strong>HITMAN</strong> card. If you draw it without holding a <strong>SHIELD</strong>, you lose! You start with 1 SHIELD and 4 random cards. Every turn ends with a draw unless you play an action card.",
-        hint: "💡 <strong>Coach Recommendation:</strong> You have the first turn! Try playing a Utility card like <strong>SPY</strong>, or click <strong>DRAW CARD</strong> to end your turn."
+        hint: "💡 <strong>Coach Recommendation:</strong> You have the first turn! Choose 1 card to play, or click <strong>DRAW CARD</strong> to conclude your turn."
     },
     {
-        badge: "Step 2 of 4: Multi-Action Combos",
-        title: "⚡ Utility Cards Do NOT End Your Turn",
-        text: "Cards like <strong>SPY</strong>, <strong>SWAP</strong>, and <strong>STEAL</strong> are Utility cards. When you play them, your turn continues! You can chain multiple utility moves (e.g. peek with SPY, then steal with STEAL) before finally drawing or attacking.",
-        hint: "💡 <strong>Coach Recommendation:</strong> Both you and the AI have this multi-move superpower! Use it to gather intel and disrupt the opponent before drawing."
+        badge: "Step 2 of 4: Turn Rule",
+        title: "⏱️ Strict Turn Rule: One Action Per Turn",
+        text: "On your turn, you take exactly <strong>ONE action</strong>: either play 1 card from your hand, OR draw 1 card from the deck. Whatever you choose, your turn immediately ends and passes to the opponent.",
+        hint: "💡 <strong>Coach Recommendation:</strong> Choose your single card wisely each turn to maintain hand advantage and avoid hazards!"
     },
     {
         badge: "Step 3 of 4: Offense & Turn Flow",
@@ -79,19 +79,19 @@ const TUTORIAL_CARD_EXPLANATIONS = {
         hint: "💡 <strong>Coach Strategy:</strong> Acts as an extra SKIP card in 1v1 matches."
     },
     "SPY": {
-        title: "👁️ SPY — Information Utility (Turn Continues!)",
-        text: "Peeks at the top 3 cards of the draw deck in exact order. <strong>Crucial:</strong> SPY is a Utility card and does NOT end your turn! You can play another card right after.",
-        hint: "💡 <strong>Coach Strategy:</strong> Always play SPY first to see if a HITMAN is on top before you decide whether to DRAW or ATTACK!"
+        title: "👁️ SPY — Tactical Information",
+        text: "Peeks at the top 3 cards of the draw deck in exact sequential order. Gives you certainty on whether the HITMAN is approaching, then ends your turn without drawing.",
+        hint: "💡 <strong>Coach Strategy:</strong> Play SPY to detect upcoming hazard cards before your opponent draws."
     },
     "SWAP": {
-        title: "🔀 SWAP — Disruptive Card Exchange (Turn Continues!)",
-        text: "Exchanges a random card from your hand with a random card from the opponent. <strong>Crucial:</strong> SWAP is a Utility card and does NOT end your turn!",
-        hint: "💡 <strong>Coach Strategy:</strong> Use SWAP to disrupt opponent strategy or fish for a SHIELD from their hand."
+        title: "🔀 SWAP — Disruptive Card Exchange",
+        text: "Exchanges a random card from your hand with a random card from the opponent, then ends your turn without drawing.",
+        hint: "💡 <strong>Coach Strategy:</strong> Use SWAP to disrupt opponent strategy or attempt to retrieve a SHIELD."
     },
     "STEAL": {
-        title: "💰 STEAL — Direct Hand Theft (Turn Continues!)",
-        text: "Steals 1 random card directly out of the opponent's hand and adds it to yours! <strong>Crucial:</strong> STEAL is a Utility card and does NOT end your turn.",
-        hint: "💡 <strong>Coach Strategy:</strong> Reduces opponent options while increasing yours. Great when opponent has few cards."
+        title: "💰 STEAL — Direct Hand Theft",
+        text: "Steals 1 random card directly out of the opponent's hand and adds it to yours, then ends your turn without drawing.",
+        hint: "💡 <strong>Coach Strategy:</strong> Reduces opponent options while expanding yours. Excellent when opponent hoards cards."
     },
     "TRAP": {
         title: "🪤 TRAP — Forced Double-Draw Hazard",
@@ -644,16 +644,12 @@ function renderGameState(state) {
             bannerText.innerText = state.winner === 0 ? "GAME ENDED — YOU WIN! 🏆" : "GAME ENDED — RL AGENT WON 💀";
         } else if (isHumanTurn) {
             banner.className = "turn-banner your-turn";
-            const hasUtil = (state.human_hand || []).some(c => c === "SPY" || c === "SWAP" || c === "STEAL");
-            const utilHint = hasUtil ? '<span style="color: #92400e; font-weight: 700; margin-left: 6px;">[⚡ You have FREE Utility moves!]</span>' : '';
-            if (seqList.length > 1) {
-                bannerText.innerHTML = `YOUR TURN <span class="ai-last-tag">(RL Agent completed ${seqList.length} moves)</span> ${utilHint}`;
-            } else if (latestAI) {
+            if (latestAI) {
                 const aiName = latestAI.action;
                 const info = CARD_INFO[aiName] || { icon: "🤖" };
-                bannerText.innerHTML = `YOUR TURN <span class="ai-last-tag">(RL Agent played ${info.icon} ${aiName})</span> ${utilHint}`;
+                bannerText.innerHTML = `YOUR TURN <span class="ai-last-tag">(RL Agent played ${info.icon} ${aiName})</span> — Choose 1 card or DRAW`;
             } else {
-                bannerText.innerHTML = `YOUR TURN ${utilHint || '— Play a card or click DRAW CARD to end turn'}`;
+                bannerText.innerHTML = `YOUR TURN — Play 1 card or click DRAW CARD to end turn`;
             }
         } else {
             banner.className = "turn-banner ai-turn";
@@ -661,8 +657,9 @@ function renderGameState(state) {
         }
     }
 
-    // 3. MULTI-ACTION ROUND SEQUENCE TRAY
-    renderAIActionSequenceTray(seqList);
+    // 3. MULTI-ACTION ROUND SEQUENCE TRAY (HIDDEN FOR STRICT 1-ACTION-PER-TURN)
+    const seqTray = document.getElementById("aiActionSequenceTray");
+    if (seqTray) seqTray.style.display = "none";
 
     // 4. AI HERO PLAYED CARD SLOT (CENTER BOARD WITH CARD DROP ANIMATION)
     const heroCard = document.getElementById("aiPlayedHeroCard");
@@ -905,7 +902,6 @@ function renderHumanHand(state) {
         const isLegal = mask[cardActionIdx] === 1 || mask[cardActionIdx] === true;
         const info = CARD_INFO[cardName] || { icon: "🃏", type: "Action", desc: cardName };
 
-        const isUtility = (cardName === "SPY" || cardName === "SWAP" || cardName === "STEAL");
         let tagText, tagClass;
         if (isWatch) {
             tagText = '👁️ In Hand';
@@ -913,19 +909,16 @@ function renderHumanHand(state) {
         } else if (!isLegal) {
             tagText = '✕ Masked';
             tagClass = 'masked-tag';
-        } else if (isUtility) {
-            tagText = '⚡ FREE MOVE (Turn Continues)';
-            tagClass = 'utility-tag';
         } else {
-            tagText = '⏳ ENDS TURN';
-            tagClass = 'ends-turn-tag';
+            tagText = '▶ PLAY CARD';
+            tagClass = 'legal-tag';
         }
 
         const cardEl = document.createElement("div");
         if (isWatch) {
             cardEl.className = `playing-card card-${cardName} spectator-card`;
         } else {
-            cardEl.className = `playing-card card-${cardName} ${isLegal ? 'legal' : 'masked'} ${isUtility ? 'utility-card-border' : ''}`;
+            cardEl.className = `playing-card card-${cardName} ${isLegal ? 'legal' : 'masked'}`;
         }
 
         cardEl.innerHTML = `

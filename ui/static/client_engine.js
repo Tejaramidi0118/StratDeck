@@ -393,7 +393,7 @@
                         }
                     }
                     info.spy_peek = peeks;
-                    // Does not end turn!
+                    this.advanceTurn();
                 } else if (action === Card.SWAP) {
                     const targetId = this.getNextAlivePlayer(this.currentPlayer);
                     const target = this.players[targetId];
@@ -410,7 +410,7 @@
                         info.swap_given = given;
                         info.swap_taken = taken;
                     }
-                    // Does not end turn!
+                    this.advanceTurn();
                 } else if (action === Card.TRAP) {
                     this.pendingDrawCount = 2;
                     this.advanceTurn();
@@ -423,7 +423,7 @@
                         p.hand.push(stolen);
                         info.stolen_card = stolen;
                     }
-                    // Does not end turn!
+                    this.advanceTurn();
                 } else {
                     this.advanceTurn();
                 }
@@ -624,10 +624,7 @@
 
             const chosenAct = pred.action;
             const chosenName = actionToName(chosenAct);
-            const isUtil = ["SPY", "SWAP", "STEAL"].includes(chosenName);
-            const note = isUtil ? " (Utility - Turn Continues)" : "";
-
-            sess.action_log.push(`Turn ${engine.turnIndex}: RL Agent played ${chosenName}${note}`);
+            sess.action_log.push(`Turn ${engine.turnIndex}: RL Agent played ${chosenName}`);
 
             const topLegal = [];
             for (let i = 0; i < 10; i++) {
@@ -760,9 +757,7 @@
             }
 
             const actName = actionToName(actIdx);
-            const isUtil = ["SPY", "SWAP", "STEAL"].includes(actName);
-            const note = isUtil ? " (Utility - Turn Continues)" : "";
-            activeSession.action_log.push(`Turn ${engine.turnIndex}: You played ${actName}${note}`);
+            activeSession.action_log.push(`Turn ${engine.turnIndex}: You played ${actName}`);
             activeSession.last_events = [];
 
             const stepRes = engine.step(actIdx);

@@ -195,17 +195,6 @@
                     <span id="oppPlayedText" class="opp-banner-text">Match started. You have the first turn! Choose a card from your hand.</span>
                 </div>
 
-                <!-- MULTI-ACTION ROUND SEQUENCE TRAY -->
-                <div id="aiActionSequenceTray" class="ai-sequence-tray hidden">
-                    <div class="sequence-tray-header">
-                        <span class="tray-icon">🤖</span>
-                        <span class="tray-title">RL AGENT MOVE SEQUENCE THIS ROUND</span>
-                    </div>
-                    <div id="aiActionSequenceCards" class="sequence-cards-grid">
-                        <!-- Dynamic cards dropped in order with Step 1, Step 2, Step 3 badges -->
-                    </div>
-                </div>
-
                 <!-- CENTER MAT: DECK, AI HERO PLAYED CARD, DISCARD -->
                 <div class="center-table-mat">
 
@@ -625,18 +614,18 @@
 
                     <!-- SECTION 2: TURN MECHANICS -->
                     <div class="rules-section-box">
-                        <h4>⚡ Turn Flow: Free Utility Moves vs Turn-Ending Moves</h4>
-                        <p>Every turn you have two distinct categories of actions. Understanding this is key to winning:</p>
+                        <h4>⏱️ Core Turn Rule: One Action Per Turn</h4>
+                        <p>StratDeck enforces a strict, fast-paced <strong>one action per turn</strong> rule. Whatever you choose, your turn ends immediately after playing:</p>
                         <div class="rules-turn-types-grid">
-                            <div class="rules-type-pill-box free-type">
-                                <div class="rules-type-title">⚡ FREE UTILITY MOVES (Turn Continues!)</div>
-                                <p><strong>SPY</strong>, <strong>SWAP</strong>, and <strong>STEAL</strong> are free actions. Playing them does <em>NOT</em> end your turn.</p>
-                                <p>You can chain multiple utility moves one after another in a single turn (e.g. <em>STEAL ➔ SPY ➔ SWAP</em>) before concluding your turn!</p>
+                            <div class="rules-type-pill-box ends-type">
+                                <div class="rules-type-title">▶ OPTION A: PLAY 1 CARD</div>
+                                <p>Play any 1 action card from your hand (such as <strong>ATTACK</strong>, <strong>SKIP</strong>, <strong>SPY</strong>, <strong>STEAL</strong>, <strong>SWAP</strong>, or <strong>TRAP</strong>).</p>
+                                <p>Its effect triggers immediately, and your turn <strong>ends on the spot</strong> without drawing.</p>
                             </div>
                             <div class="rules-type-pill-box ends-type">
-                                <div class="rules-type-title">⏳ TURN-ENDING MOVES (Passes Control)</div>
-                                <p><strong>ATTACK</strong>, <strong>SKIP</strong>, <strong>REVERSE</strong>, <strong>TRAP</strong>, active <strong>SHIELD</strong>, and clicking <strong>DRAW CARD</strong>.</p>
-                                <p>Playing any of these moves immediately concludes your turn and passes control over to your opponent.</p>
+                                <div class="rules-type-title">🎴 OPTION B: DRAW 1 CARD</div>
+                                <p>Click <strong>DRAW CARD</strong> to draw the top card from the deck into your hand.</p>
+                                <p>Your turn immediately concludes. (Watch out: drawing carries the lethal <strong>HITMAN</strong> hazard risk!)</p>
                             </div>
                         </div>
                     </div>
@@ -724,9 +713,9 @@
                                 <div class="rules-card-info">
                                     <div class="rules-card-header">
                                         <span class="rules-card-name">SPY</span>
-                                        <span class="rules-tag util">⚡ Free Move (Turn Continues)</span>
+                                        <span class="rules-tag info-tag">Tactical • Information</span>
                                     </div>
-                                    <div class="rules-card-desc">Peeks at the top 3 cards of the draw deck in exact sequential order. Your turn continues! Gives you 100% certainty on whether it is safe to draw or necessary to attack/skip.</div>
+                                    <div class="rules-card-desc">Peeks at the top 3 cards of the draw deck in exact sequential order, then ends your turn without drawing. Gives you certainty on whether the HITMAN is lurking near the top.</div>
                                 </div>
                             </div>
 
@@ -736,9 +725,9 @@
                                 <div class="rules-card-info">
                                     <div class="rules-card-header">
                                         <span class="rules-card-name">STEAL</span>
-                                        <span class="rules-tag util">⚡ Free Move (Turn Continues)</span>
+                                        <span class="rules-tag info-tag">Tactical • Resource Theft</span>
                                     </div>
-                                    <div class="rules-card-desc">Steals 1 random card directly from your opponent's hand into yours. Your turn continues! Deprives the opponent of their shields and offensive cards while expanding your hand.</div>
+                                    <div class="rules-card-desc">Steals 1 random card directly from your opponent's hand into yours, then ends your turn without drawing. Deprives the opponent of their shields while expanding your hand.</div>
                                 </div>
                             </div>
 
@@ -748,9 +737,9 @@
                                 <div class="rules-card-info">
                                     <div class="rules-card-header">
                                         <span class="rules-card-name">SWAP</span>
-                                        <span class="rules-tag util">⚡ Free Move (Turn Continues)</span>
+                                        <span class="rules-tag info-tag">Tactical • Exchange</span>
                                     </div>
-                                    <div class="rules-card-desc">Trades 1 random card from your hand with 1 random card from your opponent's hand. Your turn continues! Great for dumping low-priority cards in search of shields or attacks.</div>
+                                    <div class="rules-card-desc">Trades 1 random card from your hand with 1 random card from your opponent's hand, then ends your turn without drawing. Great for disrupting the opponent's strategy.</div>
                                 </div>
                             </div>
 
