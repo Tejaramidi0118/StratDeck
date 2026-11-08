@@ -171,20 +171,14 @@ function updateTutorialCoachForGameState(state) {
     const seqList = state.recent_ai_actions || [];
     if (seqList.length > 0) {
         if (ind) ind.innerText = "🤖 COACH BOT MOVE ANALYSIS";
-        if (seqList.length > 1) {
-            const moveNames = seqList.map(s => s.action).join(" ➔ ");
-            if (title) title.innerHTML = `🎓 Bot Multi-Action Combo: ${moveNames}`;
-            if (text) text.innerHTML = `The Coach Bot played <strong>${seqList.length} actions in one turn</strong> (${moveNames}). Because utility cards (SPY, SWAP, STEAL) do not end turns, it took multiple actions before ending its turn with ${seqList[seqList.length - 1].action}.`;
+        const singleAct = seqList[0].action;
+        if (title) title.innerHTML = `🎓 Bot Action: Played ${singleAct}`;
+        if (singleAct === "DRAW") {
+            if (text) text.innerHTML = "The Coach Bot drew 1 card from the deck. Since it didn't hit the HITMAN, its turn ended safely and the card was added to its hand. Now it's your turn!";
+        } else if (singleAct === "ATTACK") {
+            if (text) text.innerHTML = "⚠️ <strong>Incoming Attack!</strong> The Coach Bot played ATTACK. It skipped its draw and forced 2 turns onto you! You must take consecutive draws or play an avoidance card (SKIP or ATTACK) to escape!";
         } else {
-            const singleAct = seqList[0].action;
-            if (title) title.innerHTML = `🎓 Bot Action: Played ${singleAct}`;
-            if (singleAct === "DRAW") {
-                if (text) text.innerHTML = "The Coach Bot drew 1 card from the deck. Since it didn't hit the HITMAN, its turn ended safely and the card was added to its hand. Now it's your turn!";
-            } else if (singleAct === "ATTACK") {
-                if (text) text.innerHTML = "⚠️ <strong>Incoming Attack!</strong> The Coach Bot played ATTACK. It skipped its draw and forced 2 turns onto you! You must take consecutive draws or play an avoidance card (SKIP or ATTACK) to escape!";
-            } else {
-                if (text) text.innerHTML = `The Coach Bot played ${singleAct} and concluded its turn. Check your hand and choose your response!`;
-            }
+            if (text) text.innerHTML = `The Coach Bot played ${singleAct} and concluded its turn. Check your hand and choose your response!`;
         }
         if (hint) hint.innerHTML = "💡 <strong>Your Turn:</strong> Hover over any card below to see its exact effect, or click <strong>DRAW CARD</strong> to conclude your turn.";
     } else {
@@ -212,6 +206,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 drw.classList.add("open");
                 drw.style.right = "0px";
             }
+        });
+    } else if (viewParam === "testmove") {
+        startNewGame("1v1", 2).then(() => {
+            setTimeout(() => {
+                handleDrawClick();
+            }, 300);
         });
     } else if (viewParam === "actionlog") {
         startNewGame("1v1", 2).then(() => {
@@ -613,17 +613,7 @@ function renderGameState(state) {
             oppBannerText.innerText = "Match initialized! Press 'Auto Play' or 'Next Step' to watch the RL agents battle.";
         }
     } else {
-        if (seqList.length > 1) {
-            if (oppBannerTag) {
-                oppBannerTag.className = "opp-banner-tag ai-tag";
-                oppBannerTag.innerText = `🤖 MULTI-MOVE (${seqList.length} CARDS)`;
-            }
-            const actionBadges = seqList.map(s => {
-                const inf = CARD_INFO[s.action] || { icon: "🃏" };
-                return `<strong class="played-card-highlight card-tag-${s.action}">${inf.icon} ${s.action}</strong>`;
-            }).join(" ➔ ");
-            oppBannerText.innerHTML = `RL Agent executed multi-action sequence: ${actionBadges}`;
-        } else if (latestAI) {
+        if (latestAI) {
             const aiName = latestAI.action;
             const info = CARD_INFO[aiName] || { icon: "🤖", type: "AI Move", desc: aiName };
             if (oppBannerTag) {
@@ -803,47 +793,13 @@ function renderGameState(state) {
     }
 }
 
-// RENDER MULTI-ACTION SEQUENCE TRAY
+// MULTI-ACTION SEQUENCE TRAY (DISABLED FOR STRICT 1-ACTION-PER-TURN)
 function renderAIActionSequenceTray(seqList) {
     const seqTray = document.getElementById("aiActionSequenceTray");
-    const seqCards = document.getElementById("aiActionSequenceCards");
-    if (!seqTray || !seqCards) return;
-
-    if (seqList && seqList.length > 0) {
-        seqTray.classList.remove("hidden");
-        seqCards.innerHTML = "";
-        seqList.forEach((step, idx) => {
-            const sInfo = CARD_INFO[step.action] || { icon: "🃏", type: "Action" };
-            const isLast = (idx === seqList.length - 1);
-            let effectNote = "";
-            if (step.action === "STEAL") effectNote = "Stole card from you";
-            else if (step.action === "SWAP") effectNote = "Swapped cards";
-            else if (step.action === "TRAP") effectNote = "Forces 2x Draw";
-            else if (step.action === "ATTACK") effectNote = "Forces 2 Turns";
-            else if (step.action === "SPY") effectNote = "Peeked deck";
-
-            const stepCard = document.createElement("div");
-            stepCard.className = `sequence-card-item card-${step.action} ${!step.is_utility ? 'is-core' : ''}`;
-            stepCard.innerHTML = `
-                <span class="sequence-step-badge ${!step.is_utility ? 'core-badge' : ''}">Step ${idx + 1}: ${step.is_utility ? 'UTIL' : 'CORE'}</span>
-                <div class="sequence-card-icon">${sInfo.icon}</div>
-                <div class="sequence-card-details">
-                    <span class="sequence-card-title">${step.action}</span>
-                    <span class="sequence-card-prob">${(step.probability * 100).toFixed(0)}% Conf</span>
-                    ${effectNote ? `<span class="sequence-effect-badge" style="font-size: 0.68rem; color: #b91c1c; font-weight: 700; margin-top: 2px;">⚡ ${effectNote}</span>` : ''}
-                </div>
-            `;
-            seqCards.appendChild(stepCard);
-
-            if (!isLast) {
-                const arrow = document.createElement("div");
-                arrow.className = "sequence-arrow";
-                arrow.innerText = "➔";
-                seqCards.appendChild(arrow);
-            }
-        });
-    } else {
+    if (seqTray) {
         seqTray.classList.add("hidden");
+        seqTray.style.display = "none";
+        seqTray.innerHTML = "";
     }
 }
 

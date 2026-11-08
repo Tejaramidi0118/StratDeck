@@ -595,7 +595,8 @@
         const engine = sess.engine;
         sess.recent_ai_actions = [];
 
-        while (!engine.gameOver && engine.currentPlayer === 1) {
+        // Strict 1-card-per-turn: execute exactly ONE AI action
+        if (!engine.gameOver && engine.currentPlayer === 1) {
             const obs = engine.encodeObs(1);
             const mask = engine.getActionMask(1);
 
@@ -652,12 +653,7 @@
                 explanation: explanation
             };
 
-            sess.recent_ai_actions.push({
-                action: chosenName,
-                probability: decisionSummary.probability,
-                value: decisionSummary.value_estimate,
-                explanation: explanation
-            });
+            sess.recent_ai_actions = [decisionSummary];
             sess.latest_ai_decision = decisionSummary;
 
             const res = engine.step(chosenAct);
@@ -680,7 +676,6 @@
             if (res.done) {
                 if (res.winner === 0) winHistory.push(1);
                 else if (res.winner === 1) winHistory.push(0);
-                break;
             }
         }
     }
